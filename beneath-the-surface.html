@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beneath the Surface — Cailin Kuhn</title>
+  <meta name="description" content="Cailin Kuhn Portfolio.">
+  <script>
+    // Apply saved/system theme before paint to avoid a flash.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header wrap">
+    <a class="site-header__logo" href="index.html" aria-label="Cailin Kuhn — home">
+      <img class="logo logo--light" src="assets/icons/logo-header-dark.svg" width="98" height="99" alt="">
+      <img class="logo logo--dark" src="assets/icons/logo-header-light.svg" width="98" height="99" alt="">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="work.html" aria-current="page">MY WORK</a>
+      <a href="index.html#about">ABOUT</a>
+      <a href="index.html#playground">PLAYGROUND</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-label-light="LAND" data-label-dark="SEA">
+      <span class="theme-toggle__icon" aria-hidden="true"><span class="icon icon--sun"></span><span class="icon icon--moon"></span></span>
+      <span class="theme-toggle__label">LAND</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- Case study: Beneath the Surface -->
+    <article class="case section--page-top wrap" aria-labelledby="case-title">
+      <div class="label-row">
+        <p class="label"><a href="work.html">02.<span class="light-only">Field_Notes</span><span class="dark-only">Sample_Log</span></a></p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end">NO. 103 · <span class="light-only">sighted</span><span class="dark-only">logged</span> 2026</p>
+      </div>
+      <h1 class="display display--section display--tight" id="case-title">BENEATH THE SURFACE</h1>
+
+      <figure class="case__hero">
+        <img src="assets/images/beneath-the-surface.jpg" width="1600" height="1200" alt="Beneath the Surface website shown on a laptop resting on a wooden chair">
+      </figure>
+
+      <div class="case__intro">
+        <dl class="case__facts">
+          <div>
+            <dt>Year</dt>
+            <dd>2026</dd>
+          </div>
+          <div>
+            <dt>Services</dt>
+            <dd>UI Design and Illustration</dd>
+          </div>
+        </dl>
+        <div class="case__body">
+          <p class="case__description">In this project, I created an interactive, informational website that explores the important ecological role of oysters. Oysters naturally filter water, taking away harmful pollutants. They also protect coastlines from erosion and provide homes and food to other marine life. Through this project, I wanted to demonstrate their significance and advocate for restoration.</p>
+          <a class="pill-button" href="https://www.dropbox.com/scl/fi/1spamm0v1n7kiznvjfjwn/BeneathTheSurface-Process.pdf?rlkey=2jv4dr472zzkk76zr3kuthxwr&amp;st=qka1ektg&amp;e=1&amp;dl=0" target="_blank" rel="noopener">
+            <span class="pill-button__label">VIEW PROCESS DECK</span>
+            <span class="pill-button__arrow" aria-hidden="true"><span class="icon icon--arrow"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="case__media">
+        <video src="assets/images/beneath-the-surface-demo.mp4" width="1920" height="1274" controls playsinline preload="metadata" aria-label="Demo of the Beneath the Surface website"></video>
+        <img src="assets/images/beneath-the-surface-2.jpg" width="2000" height="1500" alt="Two laptops showing the Stronger Together and Meet the Eastern Oyster pages" loading="lazy">
+      </div>
+
+      <div class="section__action">
+        <a class="pill-button" href="work.html">
+          <span class="pill-button__label">SEE ALL WORK</span>
+          <span class="pill-button__arrow" aria-hidden="true"><span class="icon icon--arrow"></span></span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="site-footer__inner wrap">
+      <div class="site-footer__brand">
+        <a class="site-footer__home" href="index.html" aria-label="Cailin Kuhn — home">
+          <img class="site-footer__logo logo--light" src="assets/icons/logo-footer-light.svg" width="140" height="144" alt="">
+          <img class="site-footer__logo logo--dark" src="assets/icons/logo-footer-dark.svg" width="140" height="144" alt="">
+        </a>
+        <p class="site-footer__tagline">LET<span class="apos">’</span>S GO EXPLORING</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="footer-menu">
+        <h2 class="footer-col__title" id="footer-menu">MENU</h2>
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#playground">Playground</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-col__title"><span class="light-only">FIND ME IN THE FIELD</span><span class="dark-only">SEND A SIGNAL</span></h2>
+        <ul role="list">
+          <li><a href="mailto:cailinmkuhn@gmail.com">cailinmkuhn@gmail.com</a></li>
+          <li><a href="tel:+19149990923">+1 (914)-999-0923</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/contours.js"></script>
+</body>
+</html>

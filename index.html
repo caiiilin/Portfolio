@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cailin Kuhn -> Designer</title>
+  <meta name="description" content="Cailin Kuhn Portfolio.">
+  <script>
+    // Apply saved/system theme before paint to avoid a flash.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header wrap">
+    <a class="site-header__logo" href="#top" aria-label="Cailin Kuhn — home">
+      <img class="logo logo--light" src="assets/icons/logo-header-dark.svg" width="98" height="99" alt="">
+      <img class="logo logo--dark" src="assets/icons/logo-header-light.svg" width="98" height="99" alt="">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="work.html">MY WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#playground">PLAYGROUND</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-label-light="LAND" data-label-dark="SEA">
+      <span class="theme-toggle__icon" aria-hidden="true"><span class="icon icon--sun"></span><span class="icon icon--moon"></span></span>
+      <span class="theme-toggle__label">LAND</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- 01 — Introduction -->
+    <section class="hero wrap" id="top">
+      <div class="label-row">
+        <p class="label">01.<span class="light-only">Trailhead_User</span><span class="dark-only">Surface_User</span></p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end">i make brands, graphics, and websites. sometimes i go outside, too.</p>
+      </div>
+      <h1 class="display display--hero">CAILIN KUHN</h1>
+      <div class="status">
+        <p class="status__currently">currently -- designing at RIT · <span class="light-only">last sighting: northern flicker</span><span class="dark-only">depth: 0m, surfacing soon</span></p>
+        <p class="status__availability"><span class="status__dot" aria-hidden="true"></span><span class="status__availability-text">open to full time roles starting may 2027</span></p>
+      </div>
+    </section>
+
+    <!-- 02 — Featured work -->
+    <section class="section wrap" id="work" aria-labelledby="work-title">
+      <div class="label-row">
+        <p class="label">02.<span class="light-only">Field_Notes</span><span class="dark-only">Sample_Log</span></p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end"><span class="light-only">observed</span><span class="dark-only">logged</span> 2024–present</p>
+      </div>
+      <h2 class="display display--section" id="work-title">FEATURED WORK</h2>
+
+      <ul class="work-grid" role="list">
+        <li>
+          <a class="card" href="beneath-the-surface.html">
+            <span class="card__media card__media--featured">
+              <img src="assets/images/beneath-the-surface.jpg" width="1600" height="1200" alt="Beneath the Surface shown on a laptop screen" loading="lazy">
+            </span>
+            <span class="card__title">BENEATH THE SURFACE</span>
+            <span class="card__meta">UI Design / Illustration</span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#">
+            <span class="card__media card__media--featured">
+              <img src="assets/images/moving-organism.jpg" width="1600" height="1200" alt="The Moving Organism poster mounted on a wall" loading="lazy">
+            </span>
+            <span class="card__title">THE MOVING ORGANISM</span>
+            <span class="card__meta">Graphic Design / Brand Management</span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#">
+            <span class="card__media card__media--featured">
+              <img src="assets/images/merlin-bird-buddies.jpg" width="1600" height="1066" alt="Merlin Bird Buddies app on a phone held in hand" loading="lazy">
+            </span>
+            <span class="card__title">MERLIN BIRD BUDDIES</span>
+            <span class="card__meta">UI Design / UX Design</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="section__action">
+        <a class="pill-button" href="work.html">
+          <span class="pill-button__label">SEE ALL</span>
+          <span class="pill-button__arrow" aria-hidden="true"><span class="icon icon--arrow"></span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 03 — About -->
+    <section class="section wrap" id="about" aria-labelledby="about-heading">
+      <div class="label-row">
+        <h2 class="label" id="about-heading">03.Hi_User</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end">a little about myself :)</p>
+      </div>
+
+      <div class="about">
+        <div class="about__photos">
+          <img class="about__photo about__photo--1" src="assets/images/about-1.jpg" width="768" height="1024" alt="Cailin outdoors" loading="lazy">
+          <img class="about__photo about__photo--2" src="assets/images/about-2.jpg" width="1200" height="900" alt="A rocky shoreline" loading="lazy">
+          <img class="about__photo about__photo--3" src="assets/images/about-3.jpg" width="768" height="1024" alt="A plate of food" loading="lazy">
+        </div>
+        <p class="about__text">Hey, I'm Cailin! I'm a designer who likes making a bit of everything, from brand identities and graphic design to interfaces and digital experiences. When I'm not staring at my computer, I'm probably hiking, birdwatching, wandering around a museum, or finding another hobby to pick up.</p>
+      </div>
+
+      <div class="section__action section__action--about">
+        <a class="pill-button" href="#">
+          <span class="pill-button__label">MORE ABOUT ME</span>
+          <span class="pill-button__arrow" aria-hidden="true"><span class="icon icon--arrow"></span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 04 — Playground -->
+    <section class="section wrap" id="playground" aria-labelledby="playground-title">
+      <div class="label-row">
+        <p class="label">04.<span class="light-only">Sketchbook</span><span class="dark-only">Lab_Tests</span></p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end"><span class="light-only">things i doodled in the margins</span><span class="dark-only">things i&#39;m still testing</span></p>
+      </div>
+      <h2 class="display display--section" id="playground-title">PLAYGROUND</h2>
+
+      <ul class="playground-row" role="list">
+        <li>
+          <a class="card card--play" href="#">
+            <span class="card__media card__media--play">
+              <img class="scout-one" src="assets/images/scout-one.jpg" width="1600" height="900" alt="Scout One camera binoculars render" loading="lazy">
+            </span>
+            <span class="card__title">SCOUT ONE</span>
+            <span class="card__meta">UI Design</span>
+          </a>
+        </li>
+        <li>
+          <a class="card card--play" href="#">
+            <span class="card__media card__media--play">
+              <img src="assets/images/framer-brand-ident.jpg" width="1080" height="1080" alt="Framer brand ident — repeating typographic motion piece" loading="lazy">
+            </span>
+            <span class="card__title">FRAMER BRAND IDENT</span>
+            <span class="card__meta">Motion Design</span>
+          </a>
+        </li>
+        <li>
+          <a class="card card--play" href="#">
+            <span class="card__media card__media--play">
+              <video src="assets/videos/broadCity-square.mp4" poster="assets/images/broad-city-opener.jpg" width="1080" height="1080" autoplay muted loop playsinline preload="metadata" aria-label="Broad City opener animation of two friends high-fiving"></video>
+            </span>
+            <span class="card__title">BROAD CITY OPENER</span>
+            <span class="card__meta">Animation</span>
+          </a>
+        </li>
+        <li>
+          <a class="card card--play" href="#">
+            <span class="card__media card__media--play">
+              <img src="assets/images/something-else.jpg" width="720" height="1280" alt="Generative pattern of drifting dots on cream" loading="lazy">
+            </span>
+            <span class="card__title">SOMETHING ELSE</span>
+            <span class="card__meta">:)</span>
+          </a>
+        </li>
+        <li>
+          <a class="card card--play" href="#">
+            <span class="card__media card__media--play">
+              <img src="assets/images/spotify-study-space.jpg" width="826" height="1476" alt="Spotify Study Space visual of dotted lines on blue" loading="lazy">
+            </span>
+            <span class="card__title">SPOTIFY STUDY SPACE</span>
+            <span class="card__meta">UI Design</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="section__action">
+        <a class="pill-button" href="#">
+          <span class="pill-button__label">SEE MORE</span>
+          <span class="pill-button__arrow" aria-hidden="true"><span class="icon icon--arrow"></span></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="site-footer__inner wrap">
+      <div class="site-footer__brand">
+        <a class="site-footer__home" href="#top" aria-label="Cailin Kuhn — home">
+          <img class="site-footer__logo logo--light" src="assets/icons/logo-footer-light.svg" width="140" height="144" alt="">
+          <img class="site-footer__logo logo--dark" src="assets/icons/logo-footer-dark.svg" width="140" height="144" alt="">
+        </a>
+        <p class="site-footer__tagline">LET<span class="apos">’</span>S GO EXPLORING</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="footer-menu">
+        <h2 class="footer-col__title" id="footer-menu">MENU</h2>
+        <ul role="list">
+          <li><a href="#top">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#playground">Playground</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-col__title"><span class="light-only">FIND ME IN THE FIELD</span><span class="dark-only">SEND A SIGNAL</span></h2>
+        <ul role="list">
+          <li><a href="mailto:cailinmkuhn@gmail.com">cailinmkuhn@gmail.com</a></li>
+          <li><a href="tel:+19149990923">+1 (914)-999-0923</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/contours.js"></script>
+  <script src="js/flock.js"></script>
+</body>
+</html>

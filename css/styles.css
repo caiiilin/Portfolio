@@ -1,0 +1,679 @@
+/* ==========================================================================
+   Cailin Kuhn — Portfolio
+   Built from Figma frame "Sep.29.2" (1920 × 4450). Sizes scale fluidly
+   down from the 1920px design; values in comments are the design px.
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --c-bg: #fff6e3;
+  --c-ink: #20383c;        /* headings, body copy, rules */
+  --c-navy: #132845;       /* buttons */
+  --c-nav: #546e73;        /* header nav + theme toggle */
+  --c-button: #20383c;     /* pill buttons */
+  --c-footer-bg: #546e73;
+  --c-footer-head: #fff6e3;
+  --c-footer-text: #dad2c1;
+
+  /* Type */
+  --f-display: "East Sea Dokdo", "Comic Sans MS", cursive;
+  --f-body: "Hanken Grotesk", system-ui, sans-serif;
+  --f-button: "Darker Grotesque", "Hanken Grotesk", sans-serif;
+
+  --fs-body: clamp(17px, 1.667vw, 32px);   /* 32 */
+  --fs-meta: clamp(14px, 1.25vw, 24px);    /* 24 */
+  --fs-nav: clamp(15px, 1.302vw, 25px);    /* 25 */
+  --fs-button: clamp(17px, 1.25vw, 24px);  /* 24 */
+  --fs-tag: clamp(13px, 1.042vw, 20px);    /* 20 */
+
+  /* Spacing */
+  --px: clamp(20px, 3.906vw, 75px);            /* page gutter 75 */
+  --gap: clamp(14px, 1.302vw, 25px);           /* grid gap 25 */
+  --sp-section: clamp(96px, 10.104vw, 194px);  /* between sections 194 */
+  --sp-label: clamp(28px, 3.125vw, 60px);      /* label → title 60 */
+  --sp-title: clamp(40px, 6.667vw, 128px);     /* title → cards 128 */
+  --sp-content: clamp(28px, 2.917vw, 56px);    /* label → about content 56 */
+  --sp-action: clamp(28px, 2.5vw, 48px);       /* content → button 48 */
+  --sp-card-title: clamp(14px, 1.354vw, 26px); /* image → title 26 */
+  --sp-card-meta: clamp(10px, 0.781vw, 15px);  /* title → meta 15 */
+
+  --radius: 5px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+:root[data-theme="dark"] {
+  --c-bg: #132845;
+  --c-ink: #fff6e3;
+  --c-navy: #fff6e3;
+  --c-nav: #749eb8;
+  --c-button: #fff6e3;
+  --c-footer-bg: #749EB8;
+  --c-footer-head: #132845;
+  --c-footer-text: #30496d;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--f-body);
+  font-size: var(--fs-body);
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .3s var(--ease), color .3s var(--ease);
+}
+
+h1, h2, h3, p, ul { margin: 0; }
+ul[role="list"] { list-style: none; padding: 0; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--px);
+  top: -100px;
+  padding: 8px 16px;
+  background: var(--c-navy);
+  color: var(--c-bg);
+  z-index: 10;
+}
+.skip-link:focus { top: 16px; }
+
+/* Content column: 1770 wide at 1920 with 75 gutters. Also a size container
+   so display type can scale with it (cqi). */
+.wrap {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: var(--px);
+  container-type: inline-size;
+}
+
+/* Trim text boxes to cap height / baseline, matching Figma's text-box-trim. */
+.label,
+.display,
+.hero__tagline,
+.status__currently,
+.status__availability-text,
+.card__title,
+.card__meta,
+.card__tag,
+.case__facts dt,
+.case__facts dd,
+.case__description,
+.site-footer__signal,
+.about__text,
+.pill-button__label,
+.site-footer__tagline,
+.footer-col__title,
+.footer-col li {
+  text-box: trim-both cap alphabetic;
+}
+
+/* Copy that changes with the theme: land (light) / sea (dark). */
+.dark-only { display: none; }
+[data-theme="dark"] .light-only { display: none; }
+[data-theme="dark"] .dark-only { display: revert; }
+
+/* Icons use the Figma SVGs as masks so they follow the current text color. */
+.icon {
+  display: block;
+  background-color: currentColor;
+  -webkit-mask: var(--icon) center / 100% 100% no-repeat;
+          mask: var(--icon) center / 100% 100% no-repeat;
+}
+.icon--sun   { --icon: url("../assets/icons/sun.svg");   width: 21.5px;    height: 21.5px; }
+.icon--moon  { --icon: url("../assets/icons/moon.svg");  width: 19.4px;    height: 19.4px; }
+.icon--arrow { --icon: url("../assets/icons/arrow-dark.svg"); width: 31.4176px; height: 25.7456px; }
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding-top: clamp(20px, 2.292vw, 44px);  /* 44 */
+}
+
+.site-header__logo {
+  justify-self: start;
+  width: clamp(56px, 5.104vw, 98px);        /* 98 × 99 */
+  margin-left: -6px;                        /* logo sits at x=69 vs 75 gutter */
+}
+.site-header__logo .logo { width: 100%; height: auto; }
+/* Header + footer logos swap per theme. */
+.logo--dark { display: none; }
+[data-theme="dark"] .logo--light { display: none; }
+[data-theme="dark"] .logo--dark { display: block; }
+
+.site-nav {
+  display: flex;
+  gap: clamp(20px, 2.604vw, 50px);          /* 50 */
+  font-size: var(--fs-nav);
+  font-weight: 500;
+  color: var(--c-nav);
+  white-space: nowrap;
+}
+.site-nav a {
+  position: relative;
+  padding-bottom: 2px;
+}
+/* Underline is its own layer so land mode can give it a pencil edge. */
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s var(--ease);
+}
+.site-nav a:hover::after,
+.site-nav a[aria-current="page"]::after { transform: scaleX(1); }
+
+.theme-toggle {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--c-nav);
+  font: 300 var(--fs-nav) / normal var(--f-body);
+  cursor: pointer;
+}
+.theme-toggle__icon {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  transition: transform .5s var(--ease);
+}
+.theme-toggle:hover .theme-toggle__icon { transform: rotate(45deg); }
+
+/* Sun (20px) in light mode, moon (18px) in dark mode. */
+.icon--moon { display: none; }
+[data-theme="dark"] .icon--sun { display: none; }
+[data-theme="dark"] .icon--moon { display: block; }
+[data-theme="dark"] .theme-toggle__icon { width: 18px; height: 18px; }
+[data-theme="dark"] .theme-toggle:hover .theme-toggle__icon { transform: rotate(-20deg); }
+
+/* ---------- Section label row ("01.Welcome_User ——— right text") ---------- */
+
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.label { font-size: var(--fs-body); font-weight: 400; white-space: nowrap; }
+.label--end { text-align: right; }
+.rule {
+  flex: 1;
+  min-width: 40px;
+  height: 2px;
+  margin-top: 6px;               /* rule sits 14px below the label's cap top */
+  border-radius: 1px;
+  background: currentColor;
+}
+
+/* ---------- Display type ---------- */
+
+.display {
+  font-family: var(--f-display);
+  font-weight: 400;
+  white-space: nowrap;
+}
+.display--hero    { font-size: 22.55cqi; }                          /* 400 */
+.display--section { font-size: 11.3cqi; margin-top: var(--sp-label); } /* 200 */
+.display--section.display--tight { margin-top: clamp(22px, 2.292vw, 44px); } /* 44 */
+
+/* ---------- 01 Hero ---------- */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: calc(min(100svh, 1080px) + 14px);  /* +20px below the nav for the hero interaction; tagline ends at y=1094 */
+  padding-top: 260px;
+}
+/* Flock / school canvas (js/flock.js), placed by JS between the nav and the 01 label. */
+.hero { position: relative; }
+.flock {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.hero .display--hero { margin-top: clamp(24px, 2.969vw, 57px); }   /* 57 */
+.hero__tagline { margin-top: clamp(28px, 6.354vw, 122px); }        /* 122 */
+
+/* Status under the name (Figma "Oct.5.1-light" › introduction):
+   "currently …" at 32px, then an indented availability line with a pulsing dot. */
+.hero:has(.status) { min-height: calc(min(100svh, 1080px) + 74px); }  /* status ends at y=1154; 01 label at y=724 */
+.status { margin-top: clamp(28px, 6.354vw, 122px); }               /* 122 */
+.status__currently { font-size: var(--fs-body); }
+.status__availability {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: clamp(12px, 1.198vw, 23px);                           /* 23 */
+  margin-left: clamp(6px, 0.625vw, 12px);                           /* indented 12 */
+  font-size: var(--fs-meta);
+}
+.status__dot {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c-nav);
+  animation: status-pulse 2.4s ease-out infinite;
+}
+@keyframes status-pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c-nav) 60%, transparent); }
+  100% { box-shadow: 0 0 0 10px transparent; }
+}
+
+/* The availability line sits in the space above Featured Work, so that gap
+   is 40px shorter than the other section gaps (194 → 154). */
+.hero:has(.status) + .section { padding-top: calc(var(--sp-section) - clamp(20px, 2.083vw, 40px)); }
+
+/* ---------- Sections ---------- */
+
+.section { padding-top: var(--sp-section); }
+.section--page-top { padding-top: clamp(160px, 11.458vw, 220px); }  /* first section on inner pages: label at y=220 */
+
+.section__action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--sp-action);
+}
+
+/* ---------- Cards ---------- */
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+  margin-top: var(--sp-title);
+}
+
+.card { display: flex; flex-direction: column; }
+.card__media {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--c-ink) 8%, transparent);
+}
+.card__media img,
+.card__media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s var(--ease);
+}
+.card:hover .card__media img,
+.card:hover .card__media video { transform: scale(1.04); }
+
+.card__media--featured { aspect-ratio: 573 / 384; }
+
+/* Two-up featured grid (Figma "Oct.5.2-light"): 873 × 528 images, 80px between rows. */
+.work-grid--pairs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: clamp(40px, 4.167vw, 80px);
+}
+.work-grid--pairs .card__media--featured { aspect-ratio: 873 / 528; }
+
+/* Title row: project title left, specimen tag right, vertically centered. */
+.card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-top: var(--sp-card-title);
+}
+.card__head .card__title { margin-top: 0; }
+.card__tag {
+  font-size: var(--fs-tag);
+  color: var(--c-nav);
+  white-space: nowrap;
+}
+.card__media--play     { aspect-ratio: 374 / 320; }
+
+.card__title {
+  margin-top: var(--sp-card-title);
+  font-size: var(--fs-body);
+  font-weight: 700;
+}
+.card__meta {
+  margin-top: var(--sp-card-meta);
+  font-size: var(--fs-meta);
+}
+
+/* ---------- Case study pages ---------- */
+
+.case__hero {
+  margin: var(--sp-title) 0 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.case__hero img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Same 3-column rhythm as About: details left, description across 2 columns. */
+.case__intro {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--gap);
+  align-items: start;
+  margin-top: clamp(48px, 4.167vw, 80px);                           /* 80 */
+}
+.case__facts {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 1.667vw, 32px);                                  /* 32 */
+  margin: 0;
+}
+.case__facts dt { font-size: var(--fs-tag); color: var(--c-nav); }
+.case__facts dd { margin: var(--sp-card-meta) 0 0; font-size: var(--fs-body); }
+.case__body { grid-column: 2 / 4; }
+.case__body .pill-button { margin-top: var(--sp-action); }
+
+.case__media {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  margin-top: var(--sp-title);
+}
+.case__media video,
+.case__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+.case__media video { background: #000; }
+
+/* ---------- 03 About ---------- */
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--gap);
+  align-items: start;
+  margin-top: var(--sp-content);
+}
+.about__photos {
+  display: grid;
+  grid-template-columns: 174fr 175fr 174fr;
+  gap: var(--gap);
+  align-items: start;
+}
+.about__photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.about__photo--1 { aspect-ratio: 174 / 232; }
+.about__photo--2 { aspect-ratio: 175 / 192; object-position: 45% 50%; }
+.about__photo--3 { aspect-ratio: 174 / 152; object-position: 50% 55%; }
+
+.about__text {
+  grid-column: 2 / 4;
+  margin-top: 4px;               /* text cap top sits 4px below the photos */
+}
+
+/* ---------- 04 Playground (horizontal scroller, bleeds off the right) ---------- */
+
+.playground-row {
+  display: flex;
+  gap: var(--gap);
+  margin-top: var(--sp-title);
+  margin-right: calc(-1 * var(--px));
+  padding-right: var(--px);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+.playground-row::-webkit-scrollbar { display: none; }
+.playground-row > li {
+  flex: 0 0 clamp(240px, 19.479vw, 374px);  /* 374 */
+  scroll-snap-align: start;
+}
+.card__media--play .scout-one { object-position: 100% 50%; }
+
+/* ---------- Pill button ---------- */
+
+.pill-button {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px calc(clamp(24px, 2.083vw, 40px) + 2px);   /* 12 / 40 + the 2px outline */
+  border-radius: 50px;
+  color: var(--c-button);
+  font-family: var(--f-button);
+  font-size: var(--fs-button);
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color .25s var(--ease);
+}
+/* Outline + hover fill live on a layer behind the label, so land mode can
+   give them a pencil edge without roughening the text. */
+.pill-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 2px solid var(--c-button);
+  border-radius: inherit;
+  transition: background-color .25s var(--ease);
+}
+.pill-button__arrow {
+  display: grid;
+  place-items: center;
+  width: 37.103px;
+  height: 36.267px;
+  transition: transform .3s var(--ease);
+}
+.pill-button__arrow .icon { transform: rotate(39.02deg); }
+.pill-button:hover { color: var(--c-bg); }
+.pill-button:hover::before { background-color: var(--c-button); }
+.pill-button:hover .pill-button__arrow { transform: translateX(6px); }
+
+/* Land mode: UI lines look hand-drawn in ink — a gentle wobble (SVG filters
+   defined in js/main.js). Sea mode keeps clean vectors. */
+:root:not([data-theme="dark"]) .rule,
+:root:not([data-theme="dark"]) .site-nav a::after { filter: url(#pencil-line); }
+:root:not([data-theme="dark"]) .pill-button::before { filter: url(#pencil-box); }
+
+/* Sea mode: buttons pulse in time with the availability dot (same keyframes). */
+[data-theme="dark"] .pill-button { animation: status-pulse 2.4s ease-out infinite; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  margin-top: var(--sp-section);
+  background: var(--c-footer-bg);
+  transition: background-color .3s var(--ease);
+}
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 997fr 399fr 374fr;  /* columns at x = 75, 1072, 1471 */
+  padding-top: clamp(56px, 8.125vw, 156px);    /* 156 */
+  padding-bottom: clamp(48px, 5.99vw, 115px);  /* 115 */
+}
+.site-footer__brand { padding-top: 2px; }
+.site-footer__logo { width: clamp(80px, 7.292vw, 140px); height: auto; }  /* 140 × 144 */
+.site-footer__home { display: inline-block; vertical-align: top; }
+.site-footer__tagline {
+  margin-top: clamp(24px, 2.24vw, 43px);       /* 43 */
+  font-family: var(--f-display);
+  font-size: min(clamp(44px, 5.208vw, 100px), 12.5cqi);  /* 100; never wider than the footer */
+  color: var(--c-footer-head);
+  white-space: nowrap;
+}
+.site-footer__tagline .apos { letter-spacing: -0.048em; }
+.site-footer__signal {
+  margin-top: clamp(20px, 1.667vw, 32px);       /* 32 */
+  font-size: var(--fs-meta);
+  color: var(--c-footer-text);
+}
+.site-footer__signal a { color: var(--c-footer-head); text-decoration: underline; text-underline-offset: 4px; }
+
+.footer-col__title {
+  font-size: var(--fs-body);
+  font-weight: 400;
+  color: var(--c-footer-head);
+}
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: clamp(18px, 1.354vw, 26px);      /* 26 */
+  color: var(--c-footer-text);
+  white-space: nowrap;
+}
+.footer-col a { transition: color .2s var(--ease); }
+.footer-col a:hover { color: var(--c-footer-head); text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Texture: paper grain (land) / marine snow (sea, js/snow.js) ---------- */
+
+/* Fine grain + soft blotchy paper tone, generated (no image files). Sits
+   behind all content and fades out in sea mode. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3  0 0 0 0 .25  0 0 0 0 .18  1.4 0 0 0 -.5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.008 .014' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .32  .7 0 0 0 -.28'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
+  background-size: 220px 220px, 640px 640px;
+  mix-blend-mode: multiply;
+  opacity: .22;
+  transition: opacity .8s var(--ease);
+}
+[data-theme="dark"] body::before { opacity: 0; }
+
+.marine-snow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .8s var(--ease);
+}
+[data-theme="dark"] .marine-snow { opacity: 1; }
+
+/* Map lines (js/contours.js): topography on land, bathymetry at sea. */
+.contours {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ---------- Custom cursor (js/cursor.js) ---------- */
+
+.has-custom-cursor,
+.has-custom-cursor * { cursor: none !important; }
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;   /* center on the pointer */
+  border: 2px solid var(--c-ink);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: background-color .12s ease, border-color .3s ease, opacity .2s ease;
+}
+.cursor.is-visible { opacity: 1; }
+.cursor.is-pressed { background-color: var(--c-ink); }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    row-gap: 20px;
+  }
+  .site-nav {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+  }
+
+  .about { grid-template-columns: 1fr; row-gap: 28px; }
+  .about__photos { max-width: 520px; }
+  .about__text { grid-column: auto; margin-top: 0; }
+
+  .case__intro { grid-template-columns: 1fr; row-gap: 40px; }
+  .case__body { grid-column: auto; }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 48px;
+  }
+  .site-footer__brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 700px) {
+  .label-row { flex-wrap: wrap; row-gap: 14px; }
+  .label-row .rule { display: none; }
+  .label--end { flex-basis: 100%; text-align: left; white-space: normal; opacity: .8; }
+
+
+  .hero,
+  .hero:has(.status) { min-height: calc(85svh + 20px); }
+
+  .work-grid { grid-template-columns: 1fr; row-gap: 40px; }
+
+  .site-footer__tagline { font-size: 12.5cqi; }
+}
+
+@media (max-width: 480px) {
+  .site-footer__inner { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .status__dot,
+  .pill-button { animation: none !important; }
+}
