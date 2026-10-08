@@ -17,6 +17,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-dark.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-light.svg" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -29,7 +31,7 @@
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="work.html" aria-current="page">MY WORK</a>
-      <a href="index.html#about">ABOUT</a>
+      <a href="about.html">ABOUT</a>
       <a href="index.html#playground">PLAYGROUND</a>
       <a href="#contact">CONTACT</a>
     </nav>
@@ -41,7 +43,7 @@
 
   <main id="main">
     <!-- Case study: Beneath the Surface -->
-    <article class="case section--page-top wrap" aria-labelledby="case-title">
+    <article class="case section--page-top wrap" aria-labelledby="case-title" data-case-view="full">
       <div class="label-row">
         <p class="label"><a href="work.html">02.<span class="light-only">Field_Notes</span><span class="dark-only">Sample_Log</span></a></p>
         <span class="rule" aria-hidden="true"></span>
@@ -53,30 +55,219 @@
         <img src="assets/images/beneath-the-surface.jpg" width="1600" height="1200" alt="Beneath the Surface website shown on a laptop resting on a wooden chair">
       </figure>
 
-      <div class="case__intro">
-        <dl class="case__facts">
-          <div>
-            <dt>Year</dt>
-            <dd>2026</dd>
-          </div>
-          <div>
-            <dt>Services</dt>
-            <dd>UI Design and Illustration</dd>
-          </div>
-        </dl>
-        <div class="case__body">
-          <p class="case__description">In this project, I created an interactive, informational website that explores the important ecological role of oysters. Oysters naturally filter water, taking away harmful pollutants. They also protect coastlines from erosion and provide homes and food to other marine life. Through this project, I wanted to demonstrate their significance and advocate for restoration.</p>
+      <!-- Full / condensed switch (js/case.js). Sections marked data-only show in one view. -->
+      <div class="case-view">
+        <p class="case-view__hint"><span data-only="full">The whole story: research, iterations and all.</span><span data-only="condensed">The short version, in five stops.</span></p>
+        <div class="case-view__switch" role="group" aria-label="Case study length">
+          <button type="button" data-view="full" aria-pressed="true">FULL STUDY</button>
+          <button type="button" data-view="condensed" aria-pressed="false">CONDENSED</button>
+        </div>
+      </div>
+
+      <!-- Overview (both views) -->
+      <section class="case-section" aria-labelledby="cs-overview">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-overview">OVERVIEW</h2>
+          <p class="case-section__q" data-only="condensed">What is it?</p>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">An interactive informational website exploring the ecological importance of oysters and the role they play in healthy marine ecosystems.</p>
+          <dl class="case__facts case__facts--grid">
+            <div><dt>Project</dt><dd>Beneath the Surface</dd></div>
+            <div><dt>Type</dt><dd>UI / Interactive Website / Educational Experience</dd></div>
+            <div><dt>Role</dt><dd>Research, UX/UI, Visual Design</dd></div>
+            <div><dt>Tools</dt><dd>Figma, Illustrator, After Effects, Procreate</dd></div>
+            <div><dt>Timeline</dt><dd>11 weeks</dd></div>
+          </dl>
           <a class="pill-button" href="https://www.dropbox.com/scl/fi/1spamm0v1n7kiznvjfjwn/BeneathTheSurface-Process.pdf?rlkey=2jv4dr472zzkk76zr3kuthxwr&amp;st=qka1ektg&amp;e=1&amp;dl=0" target="_blank" rel="noopener">
             <span class="pill-button__label">VIEW PROCESS DECK</span>
             <span class="pill-button__arrow" aria-hidden="true"><span class="icon icon--arrow"></span></span>
           </a>
         </div>
-      </div>
+      </section>
 
-      <div class="case__media">
-        <video src="assets/images/beneath-the-surface-demo.mp4" width="1920" height="1274" controls playsinline preload="metadata" aria-label="Demo of the Beneath the Surface website"></video>
-        <img src="assets/images/beneath-the-surface-2.jpg" width="2000" height="1500" alt="Two laptops showing the Stronger Together and Meet the Eastern Oyster pages" loading="lazy">
-      </div>
+      <!-- The Challenge (full) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-challenge">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-challenge">THE CHALLENGE</h2>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">Oysters are often thought of primarily as a food source, while their larger ecological role is less understood. I wanted to create an experience that could make this information approachable and engaging, particularly for younger audiences.</p>
+        </div>
+      </section>
+
+      <!-- Approach (condensed) -->
+      <section class="case-section" data-only="condensed" aria-labelledby="cs-approach">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-approach">APPROACH</h2>
+          <p class="case-section__q">What problem was I solving, who was it for, and what design decisions did I make?</p>
+        </header>
+        <div class="case-section__body">
+          <dl class="case__facts case__facts--stack">
+            <div><dt>Problem</dt><dd>Oysters are often thought of primarily as a food source, while their larger ecological role is less understood.</dd></div>
+            <div><dt>Audience</dt><dd>Younger audiences, who need the information to feel approachable and engaging.</dd></div>
+            <div><dt>Design decisions</dt><dd class="is-placeholder">Add 2–3 key decisions here.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Research (full) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-research">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-research">RESEARCH</h2>
+        </header>
+        <div class="case-section__body">
+          <div class="case-grid case-grid--2">
+            <div class="placeholder" style="--ratio: 4 / 3"><span class="placeholder__name">User persona</span><span class="placeholder__note">Coming soon</span></div>
+            <div class="placeholder" style="--ratio: 4 / 3"><span class="placeholder__name">User journey</span><span class="placeholder__note">Coming soon</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Iteration (full): three versions, two screens each, with clickable annotations.
+           Pin positions are percentages of the screen (--x, --y); each pin's number matches a note. -->
+      <section class="case-section case-section--wide" data-only="full" aria-labelledby="cs-iteration">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-iteration">ITERATION</h2>
+          <p class="case-section__q">Click a marker to see what changed and why.</p>
+        </header>
+        <div class="case-section__body">
+          <div class="versions__tabs" role="tablist" aria-label="Design versions">
+            <button type="button" role="tab" id="tab-v1" aria-controls="panel-v1" aria-selected="true">VERSION 01</button>
+            <button type="button" role="tab" id="tab-v2" aria-controls="panel-v2" aria-selected="false" tabindex="-1">VERSION 02</button>
+            <button type="button" role="tab" id="tab-v3" aria-controls="panel-v3" aria-selected="false" tabindex="-1">VERSION 03</button>
+          </div>
+
+          <div class="versions__panel" role="tabpanel" id="panel-v1" aria-labelledby="tab-v1">
+            <p class="versions__summary">Grayscale wireframes: layout, hierarchy and the photo-based oyster.</p>
+            <div class="annotated">
+              <figure class="annotated__screen">
+                <img src="assets/images/bts-v1-1.jpg" width="1920" height="1080" alt="Version 1 homepage wireframe: large black title over a gray New York skyline" loading="lazy">
+                <button type="button" class="pin" style="--x: 30%; --y: 33%" data-note="1" aria-label="Note 1">1</button>
+                <button type="button" class="pin" style="--x: 68%; --y: 66%" data-note="2" aria-label="Note 2">2</button>
+                <button type="button" class="pin" style="--x: 50%; --y: 89%" data-note="3" aria-label="Note 3">3</button>
+              </figure>
+              <ol class="annotated__notes" role="list">
+                <li class="note" data-note="1"><button type="button" class="note__btn"><span class="note__num">1</span><span class="note__title">Title lockup</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="2"><button type="button" class="note__btn"><span class="note__num">2</span><span class="note__title">Intro blurb</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="3"><button type="button" class="note__btn"><span class="note__num">3</span><span class="note__title">Scroll cue</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+              </ol>
+            </div>
+            <div class="annotated">
+              <figure class="annotated__screen">
+                <img src="assets/images/bts-v1-2.jpg" width="1920" height="1080" alt="Version 1 ‘Oysters at Work’ wireframe: text column beside a photo of oysters in a circular frame" loading="lazy">
+                <button type="button" class="pin" style="--x: 15%; --y: 16%" data-note="4" aria-label="Note 4">4</button>
+                <button type="button" class="pin" style="--x: 22%; --y: 50%" data-note="5" aria-label="Note 5">5</button>
+                <button type="button" class="pin" style="--x: 73%; --y: 29%" data-note="6" aria-label="Note 6">6</button>
+              </figure>
+              <ol class="annotated__notes" role="list">
+                <li class="note" data-note="4"><button type="button" class="note__btn"><span class="note__num">4</span><span class="note__title">Section heading</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="5"><button type="button" class="note__btn"><span class="note__num">5</span><span class="note__title">Body copy</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="6"><button type="button" class="note__btn"><span class="note__num">6</span><span class="note__title">“Click to discover” oyster</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="versions__panel" role="tabpanel" id="panel-v2" aria-labelledby="tab-v2" hidden>
+            <p class="versions__summary">First color pass: illustrated New York harbor, purple palette and handwritten type.</p>
+            <div class="annotated">
+              <figure class="annotated__screen">
+                <img src="assets/images/bts-v2-1.jpg" width="1920" height="1080" alt="Version 2 homepage: illustrated New York harbor in purple with a ferry and the Statue of Liberty" loading="lazy">
+                <button type="button" class="pin" style="--x: 50%; --y: 25%" data-note="1" aria-label="Note 1">1</button>
+                <button type="button" class="pin" style="--x: 50%; --y: 40%" data-note="2" aria-label="Note 2">2</button>
+                <button type="button" class="pin" style="--x: 75%; --y: 65%" data-note="3" aria-label="Note 3">3</button>
+              </figure>
+              <ol class="annotated__notes" role="list">
+                <li class="note" data-note="1"><button type="button" class="note__btn"><span class="note__num">1</span><span class="note__title">Added tagline</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="2"><button type="button" class="note__btn"><span class="note__num">2</span><span class="note__title">Handwritten title</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="3"><button type="button" class="note__btn"><span class="note__num">3</span><span class="note__title">Illustrated harbor</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+              </ol>
+            </div>
+            <div class="annotated">
+              <figure class="annotated__screen">
+                <img src="assets/images/bts-v2-2.jpg" width="1920" height="1080" alt="Version 2 ‘Oysters at Work’: purple illustrated seafloor with a photo of oysters in a white arc" loading="lazy">
+                <button type="button" class="pin" style="--x: 15%; --y: 16%" data-note="4" aria-label="Note 4">4</button>
+                <button type="button" class="pin" style="--x: 73%; --y: 55%" data-note="5" aria-label="Note 5">5</button>
+                <button type="button" class="pin" style="--x: 40%; --y: 85%" data-note="6" aria-label="Note 6">6</button>
+              </figure>
+              <ol class="annotated__notes" role="list">
+                <li class="note" data-note="4"><button type="button" class="note__btn"><span class="note__num">4</span><span class="note__title">Heading type</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="5"><button type="button" class="note__btn"><span class="note__num">5</span><span class="note__title">Photo oyster on illustration</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="6"><button type="button" class="note__btn"><span class="note__num">6</span><span class="note__title">Seafloor scene</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="versions__panel" role="tabpanel" id="panel-v3" aria-labelledby="tab-v3" hidden>
+            <p class="versions__summary">Painterly direction: watercolor skyline, warm gradient and hand-drawn oysters with hotspots.</p>
+            <div class="annotated">
+              <figure class="annotated__screen">
+                <img src="assets/images/bts-v3-1.jpg" width="1920" height="1080" alt="Version 3 homepage: watercolor New York skyline under a textured blue title and a Go Deeper button" loading="lazy">
+                <button type="button" class="pin" style="--x: 50%; --y: 30%" data-note="1" aria-label="Note 1">1</button>
+                <button type="button" class="pin" style="--x: 30%; --y: 55%" data-note="2" aria-label="Note 2">2</button>
+                <button type="button" class="pin" style="--x: 50%; --y: 84%" data-note="3" aria-label="Note 3">3</button>
+              </figure>
+              <ol class="annotated__notes" role="list">
+                <li class="note" data-note="1"><button type="button" class="note__btn"><span class="note__num">1</span><span class="note__title">Textured title</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="2"><button type="button" class="note__btn"><span class="note__num">2</span><span class="note__title">Watercolor skyline</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="3"><button type="button" class="note__btn"><span class="note__num">3</span><span class="note__title">“Go Deeper” button</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+              </ol>
+            </div>
+            <div class="annotated">
+              <figure class="annotated__screen">
+                <img src="assets/images/bts-v3-2.jpg" width="1920" height="1080" alt="Version 3 ‘Oysters at Work’: hand-drawn oyster cluster on a lavender seafloor with clickable hotspots" loading="lazy">
+                <button type="button" class="pin" style="--x: 15%; --y: 15%" data-note="4" aria-label="Note 4">4</button>
+                <button type="button" class="pin" style="--x: 64%; --y: 45%" data-note="5" aria-label="Note 5">5</button>
+                <button type="button" class="pin" style="--x: 86%; --y: 80%" data-note="6" aria-label="Note 6">6</button>
+              </figure>
+              <ol class="annotated__notes" role="list">
+                <li class="note" data-note="4"><button type="button" class="note__btn"><span class="note__num">4</span><span class="note__title">Heading color</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="5"><button type="button" class="note__btn"><span class="note__num">5</span><span class="note__title">Illustrated oysters</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+                <li class="note" data-note="6"><button type="button" class="note__btn"><span class="note__num">6</span><span class="note__title">Hotspots replace “click to discover”</span></button><p class="note__text is-placeholder">What changed and why.</p></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience (condensed) -->
+      <section class="case-section case-section--wide" data-only="condensed" aria-labelledby="cs-experience">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-experience">EXPERIENCE</h2>
+          <p class="case-section__q">The important interactions and UI.</p>
+        </header>
+        <div class="case-section__body">
+          <div class="placeholder" style="--ratio: 16 / 9"><span class="placeholder__name">Video demo</span><span class="placeholder__note">Coming soon</span></div>
+        </div>
+      </section>
+
+      <!-- Final UI (both views; the video demo moves to Experience when condensed) -->
+      <section class="case-section case-section--wide" aria-labelledby="cs-final">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-final"><span data-only="full">FINAL UI</span><span data-only="condensed">FINAL</span></h2>
+          <p class="case-section__q" data-only="condensed">The polished screens.</p>
+        </header>
+        <div class="case-section__body">
+          <div class="case-grid case-grid--3">
+            <div class="placeholder case-grid__full" style="--ratio: 16 / 9"><span class="placeholder__name">Homepage</span><span class="placeholder__note">Coming soon</span></div>
+            <div class="placeholder" style="--ratio: 16 / 9"><span class="placeholder__name">1st informational section</span><span class="placeholder__note">Coming soon</span></div>
+            <div class="placeholder" style="--ratio: 16 / 9"><span class="placeholder__name">2nd informational section</span><span class="placeholder__note">Coming soon</span></div>
+            <div class="placeholder" style="--ratio: 16 / 9"><span class="placeholder__name">3rd informational section</span><span class="placeholder__note">Coming soon</span></div>
+            <div class="placeholder case-grid__full" data-only="full" style="--ratio: 16 / 9"><span class="placeholder__name">Video demo</span><span class="placeholder__note">Coming soon</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reflection (both views) -->
+      <section class="case-section" aria-labelledby="cs-reflection">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-reflection">REFLECTION</h2>
+          <p class="case-section__q" data-only="condensed">What did I learn?</p>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">This project pushed me to think beyond designing individual screens and consider how information can become an experience. I learned how visual hierarchy, interaction, and storytelling can work together to make complex environmental information more approachable.</p>
+        </div>
+      </section>
 
       <div class="section__action">
         <a class="pill-button" href="work.html">
@@ -101,7 +292,7 @@
         <ul role="list">
           <li><a href="index.html">Home</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="index.html#about">About</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="index.html#playground">Playground</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -120,5 +311,6 @@
   <script src="js/cursor.js"></script>
   <script src="js/snow.js"></script>
   <script src="js/contours.js"></script>
+  <script src="js/case.js"></script>
 </body>
 </html>

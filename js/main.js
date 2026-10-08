@@ -1,20 +1,25 @@
-// Theme toggle: the label shows the current theme. Pages can rename the
+// Theme toggles: each label shows the current theme. Pages can rename the
 // themes with data-label-light / data-label-dark (default "LIGHT" / "DARK").
+// A page can have more than one toggle (e.g. the header and Rare Sightings).
 (function () {
   var root = document.documentElement;
-  var toggle = document.querySelector('.theme-toggle');
-  var label = toggle.querySelector('.theme-toggle__label');
+  var toggles = document.querySelectorAll('.theme-toggle');
 
   function render() {
     var theme = root.dataset.theme === 'dark' ? 'dark' : 'light';
-    label.textContent = toggle.dataset['label' + (theme === 'dark' ? 'Dark' : 'Light')] || theme.toUpperCase();
-    toggle.setAttribute('aria-pressed', theme === 'dark');
+    toggles.forEach(function (toggle) {
+      var label = toggle.querySelector('.theme-toggle__label');
+      label.textContent = toggle.dataset['label' + (theme === 'dark' ? 'Dark' : 'Light')] || theme.toUpperCase();
+      toggle.setAttribute('aria-pressed', theme === 'dark');
+    });
   }
 
-  toggle.addEventListener('click', function () {
-    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
-    render();
+  toggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function () {
+      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+      render();
+    });
   });
 
   render();

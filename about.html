@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About - Cailin Kuhn</title>
+  <meta name="description" content="Cailin Kuhn Portfolio.">
+  <script>
+    // Apply saved/system theme before paint to avoid a flash.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-dark.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-light.svg" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header wrap">
+    <a class="site-header__logo" href="index.html" aria-label="Cailin Kuhn — home">
+      <img class="logo logo--light" src="assets/icons/logo-header-dark.svg" width="98" height="99" alt="">
+      <img class="logo logo--dark" src="assets/icons/logo-header-light.svg" width="98" height="99" alt="">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="work.html">MY WORK</a>
+      <a href="about.html" aria-current="page">ABOUT</a>
+      <a href="index.html#playground">PLAYGROUND</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-label-light="LAND" data-label-dark="SEA">
+      <span class="theme-toggle__icon" aria-hidden="true"><span class="icon icon--sun"></span><span class="icon icon--moon"></span></span>
+      <span class="theme-toggle__label">LAND</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- 03 — Intro: photos + blurb -->
+    <section class="section section--page-top wrap" id="about" aria-labelledby="about-title">
+      <div class="label-row">
+        <p class="label">03.Hi_User</p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end"><span class="light-only">a few rare sightings below ↓</span><span class="dark-only">unusual readings below ↓</span></p>
+      </div>
+      <h1 class="display display--section display--tight" id="about-title">ABOUT ME</h1>
+
+      <div class="about-intro">
+        <!-- Overlapping photo collage (Figma "Oct.8.1-about" › images), stacked back to front. -->
+        <div class="about-collage">
+          <img class="about-collage__photo about-collage__photo--cat" src="assets/images/about-cat.jpg" width="768" height="1024" alt="Cailin petting a black-and-white cat on a marble step" loading="lazy">
+          <img class="about-collage__photo about-collage__photo--lake" src="assets/images/about-lake.jpg" width="1024" height="768" alt="Cailin crouched on a rocky shoreline beside the water" loading="lazy">
+          <img class="about-collage__photo about-collage__photo--portrait" src="assets/images/about-portrait.jpg" width="768" height="1024" alt="Cailin smiling on a terrace above the sea" loading="lazy">
+          <img class="about-collage__photo about-collage__photo--concert" src="assets/images/about-concert.jpg" width="768" height="1024" alt="A crowd at an outdoor concert at dusk" loading="lazy">
+        </div>
+        <div class="about-intro__text">
+          <h2 class="about-intro__hello">HEY, I’M CAILIN :)</h2>
+          <div class="about-intro__body">
+            <p>I’m fascinated by the little things that make an experience memorable: an unexpected interaction, a cohesive visual system, a clever piece of motion, or a detail you might not notice until you look twice. I enjoy working across mediums and figuring out how visuals, storytelling, and interaction can work together to create something that feels deeply intentional.</p>
+            <p>When I’m not staring at a computer screen, I’m usually exploring: hiking, going to concerts, birdwatching, wandering through museums, or finding something new to be curious about. My Art History and Advertising &amp; PR minors have only added to that curiosity, giving me even more ways to think about how people see and connect to the world around them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03.1 — Spec sheet: services, tools, experience -->
+    <section class="section wrap" aria-labelledby="specs-heading">
+      <div class="label-row">
+        <h2 class="label" id="specs-heading">03.1.<span class="light-only">Field_Guide</span><span class="dark-only">Spec_Sheet</span></h2>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end">what i do, what i use, where i’ve been</p>
+      </div>
+
+      <div class="specs">
+        <div class="specs__col">
+          <h3 class="specs__title">SERVICES</h3>
+          <ul class="specs__list" role="list">
+            <li>User Interface Design</li>
+            <li>Graphic Design</li>
+            <li>Motion Design</li>
+          </ul>
+        </div>
+        <div class="specs__col">
+          <h3 class="specs__title">TOOLS</h3>
+          <ul class="specs__list" role="list">
+            <li>Adobe Suite</li>
+            <li>Figma</li>
+            <li>Cinema 4D</li>
+            <li>Google Suite</li>
+            <li>VS Code</li>
+          </ul>
+        </div>
+        <div class="specs__col">
+          <h3 class="specs__title">EXPERIENCE</h3>
+          <ul class="specs__log" role="list">
+            <li>
+              <p class="specs__when">2024 – PRESENT</p>
+              <p class="specs__role">Freelance Designer</p>
+              <p class="specs__org">Self-Initiated Projects &amp; Client Work</p>
+            </li>
+            <li>
+              <p class="specs__when">JUNE 2025 – AUGUST 2025</p>
+              <p class="specs__role">Print Shop Intern</p>
+              <p class="specs__org">Pepsi-Cola Bottling Company of New York, Inc.</p>
+            </li>
+            <li>
+              <p class="specs__when">2023 – PRESENT</p>
+              <p class="specs__role">New Media Design Student</p>
+              <p class="specs__org">Rochester Institute of Technology</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03.2 — Rare sightings: a flock/school with six special creatures (js/sightings.js) -->
+    <section class="section wrap sightings" id="sightings" aria-labelledby="sightings-title">
+      <div class="label-row">
+        <p class="label">03.2.<span class="light-only">Rare_Sightings</span><span class="dark-only">Deep_Finds</span></p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end"><span class="light-only">click to identify</span><span class="dark-only">click to scan</span></p>
+      </div>
+      <h2 class="display display--section display--tight" id="sightings-title"><span class="light-only">RARE SIGHTINGS</span><span class="dark-only">DEEP FINDS</span></h2>
+
+      <div class="sightings__intro">
+        <p>Some of these aren’t like the others. See what you can find.</p>
+        <div class="sightings__tools">
+          <p class="sightings__count"><span class="light-only">LIFE LIST</span><span class="dark-only">SPECIMENS</span> <span data-found>0</span> / 6</p>
+          <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-label-light="LAND" data-label-dark="SEA">
+            <span class="theme-toggle__icon" aria-hidden="true"><span class="icon icon--sun"></span><span class="icon icon--moon"></span></span>
+            <span class="theme-toggle__label">LAND</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="sightings__arena" aria-hidden="true"></div>
+
+      <div class="sightings__dock" aria-live="polite">
+        <p class="sightings__empty"><span class="light-only">No sightings yet. Click a bird that looks a little different.</span><span class="dark-only">No readings yet. Click a fish that looks a little different.</span></p>
+      </div>
+
+      <!-- Every field note, also the source the dock copies from. Open for
+           anyone who'd rather read than hunt (and for keyboard / reduced motion). -->
+      <details class="sightings__all">
+        <summary class="pill-button">
+          <span class="pill-button__label"><span class="when-closed">SEE ALL FIELD NOTES</span><span class="when-open">HIDE FIELD NOTES</span></span>
+          <span class="pill-button__arrow" aria-hidden="true"><span class="icon icon--arrow"></span></span>
+        </summary>
+
+        <ul class="field-notes" role="list">
+          <li>
+            <article class="field-note" data-species="mets" style="--a: #002d72; --b: #ff5910;">
+              <p class="field-note__tag">NO. 01 · <span class="light-only">sighted</span><span class="dark-only">logged</span></p>
+              <h3 class="field-note__name"><span class="light-only">Queens Bluebird</span><span class="dark-only">Flushing Bay Bluefin</span></h3>
+              <p class="field-note__latin">Amazinus metropolitanus</p>
+              <span class="field-note__swatch" aria-hidden="true"></span>
+              <dl class="field-note__facts">
+                <div><dt>Habitat</dt><dd>Citi Field, upper deck</dd></div>
+                <div><dt>Behavior</dt><dd>Rounds the bases in a diamond loop. Returns every April, no matter how last season went.</dd></div>
+              </dl>
+              <p class="field-note__note">A lifelong Mets fan. It’s a lot of heartbreak, but I wouldn’t trade it.</p>
+            </article>
+          </li>
+          <li>
+            <article class="field-note" data-species="knicks" style="--a: #006bb6; --b: #f58426;">
+              <p class="field-note__tag">NO. 02 · <span class="light-only">sighted</span><span class="dark-only">logged</span></p>
+              <h3 class="field-note__name"><span class="light-only">Garden Oriole</span><span class="dark-only">Madison Square Grouper</span></h3>
+              <p class="field-note__latin">Aurantius knickerbockerensis</p>
+              <span class="field-note__swatch" aria-hidden="true"></span>
+              <dl class="field-note__facts">
+                <div><dt>Habitat</dt><dd>Madison Square Garden</dd></div>
+                <div><dt>Behavior</dt><dd>Bounces like a dribble. Often mistaken for the Queens Bluebird; same colors, different season.</dd></div>
+              </dl>
+              <p class="field-note__note">Blue and orange all year: the Mets in the summer, the Knicks in the winter.</p>
+            </article>
+          </li>
+          <li>
+            <article class="field-note" data-species="rothko" style="--a: #a3342b; --b: #e8873a;">
+              <p class="field-note__tag">NO. 03 · <span class="light-only">sighted</span><span class="dark-only">logged</span></p>
+              <h3 class="field-note__name"><span class="light-only">Color-Field Warbler</span><span class="dark-only">Color-Field Ray</span></h3>
+              <p class="field-note__latin">Rothkoa multiformis</p>
+              <span class="field-note__swatch field-note__swatch--stacked" aria-hidden="true"></span>
+              <dl class="field-note__facts">
+                <div><dt>Habitat</dt><dd>Museums, in front of the big quiet paintings</dd></div>
+                <div><dt>Behavior</dt><dd>Drifts slowly and lingers longer than everyone else. Best viewed up close.</dd></div>
+              </dl>
+              <p class="field-note__note">My Art History minor in a nutshell: Rothko proves color alone can make you feel something.</p>
+            </article>
+          </li>
+          <li>
+            <article class="field-note" data-species="drama" style="--a: #d9467c; --b: #f2b8cc;">
+              <p class="field-note__tag">NO. 04 · <span class="light-only">sighted</span><span class="dark-only">logged</span></p>
+              <h3 class="field-note__name"><span class="light-only">Dramatic Lyrebird</span><span class="dark-only">Lesser Drama Puffer</span></h3>
+              <p class="field-note__latin">Spectaculus confessionalis</p>
+              <span class="field-note__swatch" aria-hidden="true"></span>
+              <dl class="field-note__facts">
+                <div><dt>Habitat</dt><dd>The couch, during reunion season</dd></div>
+                <div><dt>Behavior</dt><dd>Storms away from the group at least once an episode. Always comes back.</dd></div>
+              </dl>
+              <p class="field-note__note">I love reality TV, no shame. Ask me about my favorite reunion moments.</p>
+            </article>
+          </li>
+          <li>
+            <article class="field-note" data-species="rock" style="--a: #1f1f24; --b: #d62828;">
+              <p class="field-note__tag">NO. 05 · <span class="light-only">sighted</span><span class="dark-only">logged</span></p>
+              <h3 class="field-note__name"><span class="light-only">Feedback Finch</span><span class="dark-only">Amplified Anglerfish</span></h3>
+              <p class="field-note__latin">Distortia fortissima</p>
+              <span class="field-note__swatch" aria-hidden="true"></span>
+              <dl class="field-note__facts">
+                <div><dt>Habitat</dt><dd>Concert floors, close to the speakers</dd></div>
+                <div><dt>Behavior</dt><dd>Headbangs in time and glows a little brighter on every beat.</dd></div>
+              </dl>
+              <p class="field-note__note">Rock music is a constant in my headphones, and I’ll take any excuse to go to a show.</p>
+            </article>
+          </li>
+          <li>
+            <article class="field-note" data-species="hike" style="--a: #3f7d4e; --b: #c9853f;">
+              <p class="field-note__tag">NO. 06 · <span class="light-only">sighted</span><span class="dark-only">logged</span></p>
+              <h3 class="field-note__name"><span class="light-only">Summit Wren</span><span class="dark-only">Trench Trekker</span></h3>
+              <p class="field-note__latin">Peregrinus summitensis</p>
+              <span class="field-note__swatch" aria-hidden="true"></span>
+              <dl class="field-note__facts">
+                <div><dt>Habitat</dt><dd>Trailheads, the steeper the better</dd></div>
+                <div><dt>Behavior</dt><dd><span class="light-only">Always climbing toward the highest point</span><span class="dark-only">Always heading for the deepest point</span>. Carries a very small backpack.</dd></div>
+              </dl>
+              <p class="field-note__note">Give me a trail and a free afternoon. Bonus points for a view at the top (and a bird I haven’t seen yet).</p>
+            </article>
+          </li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="site-footer__inner wrap">
+      <div class="site-footer__brand">
+        <a class="site-footer__home" href="index.html" aria-label="Cailin Kuhn — home">
+          <img class="site-footer__logo logo--light" src="assets/icons/logo-footer-light.svg" width="140" height="144" alt="">
+          <img class="site-footer__logo logo--dark" src="assets/icons/logo-footer-dark.svg" width="140" height="144" alt="">
+        </a>
+        <p class="site-footer__tagline">LET<span class="apos">’</span>S GO EXPLORING</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="footer-menu">
+        <h2 class="footer-col__title" id="footer-menu">MENU</h2>
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#playground">Playground</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-col__title"><span class="light-only">FIND ME IN THE FIELD</span><span class="dark-only">SEND A SIGNAL</span></h2>
+        <ul role="list">
+          <li><a href="mailto:cailinmkuhn@gmail.com">cailinmkuhn@gmail.com</a></li>
+          <li><a href="tel:+19149990923">+1 (914)-999-0923</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/contours.js"></script>
+  <script src="js/sightings.js"></script>
+</body>
+</html>
