@@ -646,6 +646,120 @@ a { color: inherit; text-decoration: none; }
 .note__text { padding: 0 0 16px 44px; font-size: var(--fs-meta); line-height: 1.35; }
 .note.is-active .note__text { animation: note-in .35s var(--ease); }
 
+/* Case media: screens, research boards and the demo video. */
+.case-grid > img,
+.case-grid .zoom-trigger img,
+.case-section__body .media-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+.media-frame { position: relative; }
+.media-frame video { background: #000; }
+
+/* ---------- Lightbox (js/lightbox.js) ---------- */
+
+.zoom-trigger {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: inherit;
+  cursor: zoom-in;
+}
+.zoom-trigger img { transition: transform .4s var(--ease), filter .4s var(--ease); }
+.zoom-trigger:hover img { filter: brightness(1.04); }
+.case__hero .zoom-trigger { overflow: hidden; }
+.case__hero .zoom-trigger:hover img { transform: scale(1.015); }
+
+.zoom-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(19 40 69 / .7);
+  color: #fff6e3;
+  cursor: zoom-in;
+  transition: background-color .2s var(--ease), transform .2s var(--ease);
+}
+.zoom-button:hover { background: rgb(19 40 69 / .9); transform: scale(1.08); }
+.zoom-button svg,
+.lightbox__close svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+html.has-lightbox { overflow: hidden; }
+
+.lightbox {
+  --lb-pad-y: clamp(56px, 5vw, 96px);
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+}
+.lightbox::backdrop {
+  background: rgb(8 16 26 / .78);
+  backdrop-filter: blur(3px);
+}
+.lightbox[open],
+.lightbox[open]::backdrop { animation: lightbox-in .25s var(--ease); }
+.lightbox__stage {
+  display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);   /* lets the media's max-height: 100% resolve */
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--lb-pad-y) clamp(16px, 4vw, 96px);
+}
+.lightbox__media {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgb(0 0 0 / .45);
+  animation: lightbox-zoom .3s var(--ease);
+}
+/* Videos have no intrinsic size until loaded: fit 16:9 inside the stage. */
+video.lightbox__media { width: min(100%, (100dvh - 2 * var(--lb-pad-y)) * 16 / 9); aspect-ratio: 16 / 9; background: #000; }
+.lightbox__close {
+  position: fixed;
+  top: clamp(12px, 1.25vw, 24px);
+  right: clamp(12px, 1.25vw, 24px);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 2px solid rgb(255 246 227 / .6);
+  border-radius: 50%;
+  background: rgb(8 16 26 / .4);
+  color: #fff6e3;
+  cursor: pointer;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease), transform .3s var(--ease);
+}
+.lightbox__close:hover { background: rgb(255 246 227 / .15); border-color: #fff6e3; transform: rotate(90deg); }
+.lightbox .cursor { border-color: #fff6e3; }
+.lightbox .cursor.is-pressed { background-color: #fff6e3; }
+
+@keyframes lightbox-in { from { opacity: 0; } }
+@keyframes lightbox-zoom { from { opacity: 0; transform: scale(.96); } }
+
 /* ---------- About page (about.html) ---------- */
 
 /* Intro (Figma "Oct.8.1-about"): photo collage 737 wide, 61 gap, blurb 972 wide. */
@@ -1104,5 +1218,8 @@ body::before {
   .pill-button { animation: none !important; }
   .field-note.is-new,
   .note.is-active .note__text,
-  .pin::after { animation: none !important; }
+  .pin::after,
+  .lightbox[open],
+  .lightbox[open]::backdrop,
+  .lightbox__media { animation: none !important; }
 }
