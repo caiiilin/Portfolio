@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Moving Organism — Cailin Kuhn</title>
+  <meta name="description" content="Cailin Kuhn Portfolio.">
+  <script>
+    // Apply saved/system theme before paint to avoid a flash.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-dark.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-light.svg" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header wrap">
+    <a class="site-header__logo" href="index.html" aria-label="Cailin Kuhn — home">
+      <img class="logo logo--light" src="assets/icons/logo-header-dark.svg" width="98" height="99" alt="">
+      <img class="logo logo--dark" src="assets/icons/logo-header-light.svg" width="98" height="99" alt="">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="work.html" aria-current="page">MY WORK</a>
+      <a href="about.html">ABOUT</a>
+      <a href="index.html#playground">PLAYGROUND</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-label-light="LAND" data-label-dark="SEA">
+      <span class="theme-toggle__icon" aria-hidden="true"><span class="icon icon--sun"></span><span class="icon icon--moon"></span></span>
+      <span class="theme-toggle__label">LAND</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- Case study: The Moving Organism (visual-first: less process, more finished work) -->
+    <article class="case case--gallery section--page-top wrap" aria-labelledby="case-title" data-case-view="full">
+      <div class="label-row">
+        <p class="label"><a href="work.html">02.<span class="light-only">Field_Notes</span><span class="dark-only">Sample_Log</span></a></p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end">NO. 085 · <span class="light-only">sighted</span><span class="dark-only">logged</span> 2025</p>
+      </div>
+      <h1 class="display display--section display--tight" id="case-title">THE MOVING ORGANISM</h1>
+
+      <figure class="case__hero">
+        <img src="assets/images/moving-organism.jpg" width="1600" height="1200" alt="The Moving Organism poster mounted on a wall" data-zoom>
+      </figure>
+
+      <!-- Full / condensed switch (js/case.js). Sections marked data-only show in one view. -->
+      <div class="case-view">
+        <p class="case-view__hint"><span data-only="full">The whole story: first direction, decisions and all.</span><span data-only="condensed">The short version, focused on the finished work.</span></p>
+        <div class="case-view__switch" role="group" aria-label="Case study length">
+          <button type="button" data-view="full" aria-pressed="true">FULL STUDY</button>
+          <button type="button" data-view="condensed" aria-pressed="false">CONDENSED</button>
+        </div>
+      </div>
+
+      <!-- Overview (both views) -->
+      <section class="case-section" aria-labelledby="cs-overview">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-overview">OVERVIEW</h2>
+          <p class="case-section__q" data-only="condensed">What is it?</p>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">An exhibition identity for <cite>The Moving Organism</cite>, photographer Sierra Allen’s series celebrating dancers captured in their natural elements.</p>
+          <dl class="case__facts case__facts--grid">
+            <div><dt>Project</dt><dd>The Moving Organism</dd></div>
+            <div><dt>Client</dt><dd>Sierra Allen</dd></div>
+            <div><dt>Type</dt><dd>Graphic Design / Brand Identity / Event Promotion</dd></div>
+            <div><dt>Role</dt><dd>Visual Identity, Print &amp; Social Design, Merchandise</dd></div>
+            <div><dt>Tools</dt><dd>Lightroom, Photoshop, Illustrator</dd></div>
+            <div><dt>Timeline</dt><dd>5 weeks</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- The Brief + first direction (full) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-brief">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-brief">THE BRIEF</h2>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">Sierra needed promotional materials to carry her exhibition across print and social media. I designed a set of posters, coordinated Instagram graphics and event merchandise, all built to highlight the energy, form and individuality in her photographs.</p>
+          <figure class="case-figure">
+            <div class="case-grid case-grid--3">
+              <img src="assets/images/tmo-direction1.1.png" width="1200" height="1200" alt="First direction: dancer photographed in motion, layered over blurred teal and slate geometric shapes, with a scribbled figure and plain sans serif type" loading="lazy" data-zoom>
+              <img src="assets/images/tmo-direction1.2.png" width="1200" height="1200" alt="First direction: three overlapping photos of a dancer inside a bold black organic outline, over blurred teal shapes" loading="lazy" data-zoom>
+              <img src="assets/images/tmo-direction1.3.png" width="1200" height="1200" alt="First direction: a dancer mid-floorwork framed by blurred geometric shapes, with the title set in a circular arc" loading="lazy" data-zoom>
+            </div>
+            <figcaption class="case-figure__caption">My first direction layered blurred geometric shapes over Sierra’s photos. It felt too static for what she envisioned, so I moved toward something louder and more hands-on.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Approach (condensed): the brief and the decisions in one stop -->
+      <section class="case-section" data-only="condensed" aria-labelledby="cs-approach">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-approach">APPROACH</h2>
+          <p class="case-section__q">What was the brief, and what design decisions did I make?</p>
+        </header>
+        <div class="case-section__body">
+          <dl class="case__facts case__facts--stack">
+            <div><dt>The brief</dt><dd>Promote Sierra’s exhibition across print and social media, highlighting the energy, form and individuality in her photographs.</dd></div>
+            <div><dt>Design decisions</dt><dd>
+              <ol class="decisions decisions--stack" role="list">
+                <li class="decision"><span class="decision__num" aria-hidden="true">01</span><h3 class="decision__title">Collage as the concept</h3><p class="decision__text">Custom lettering that looks cut from construction paper, inspired by Sierra’s love of collage.</p></li>
+                <li class="decision"><span class="decision__num" aria-hidden="true">02</span><h3 class="decision__title">Type that moves with the dancers</h3><p class="decision__text">The letterforms bend around the dancers’ outlines, carrying the same movement as the bodies they surround.</p></li>
+                <li class="decision"><span class="decision__num" aria-hidden="true">03</span><h3 class="decision__title">Halftone for energy</h3><p class="decision__text">Monochrome halftone photos add a printed, tactile contrast that pairs with the paper-cut type.</p></li>
+              </ol>
+            </dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Identity: five logo lockups, shown together as a system -->
+      <section class="case-section case-section--wide" aria-labelledby="cs-identity">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-identity">IDENTITY</h2>
+          <p class="case-section__q">Five lockups, one system.</p>
+        </header>
+        <div class="case-section__body">
+          <!-- Land mode shows the dark (.d) versions, sea mode the light (.l) ones. -->
+          <div class="case-grid case-grid--5">
+            <div class="lockup">
+              <img class="light-only" src="assets/images/tmo-wordmark1.d.png" width="1530" height="1113" alt="Stacked wordmark with “by Sierra Allen”" loading="lazy" data-zoom>
+              <img class="dark-only" src="assets/images/tmo-wordmark1.l.png" width="1530" height="1113" alt="Stacked wordmark with “by Sierra Allen”" loading="lazy" data-zoom>
+            </div>
+            <div class="lockup">
+              <img class="light-only" src="assets/images/tmo-wordmark2.d.png" width="1230" height="835" alt="Wordmark with the dancing-figures doodle" loading="lazy" data-zoom>
+              <img class="dark-only" src="assets/images/tmo-wordmark2.l.png" width="1230" height="835" alt="Wordmark with the dancing-figures doodle" loading="lazy" data-zoom>
+            </div>
+            <div class="lockup">
+              <img class="light-only" src="assets/images/tmo-wordmark3.d.png" width="1530" height="1287" alt="Wordmark above the dancing-figures doodle" loading="lazy" data-zoom>
+              <img class="dark-only" src="assets/images/tmo-wordmark3.l.png" width="1530" height="1287" alt="Wordmark above the dancing-figures doodle" loading="lazy" data-zoom>
+            </div>
+            <div class="lockup">
+              <img class="light-only" src="assets/images/tmo-wordmark4.d.png" width="1530" height="714" alt="Compact two-line wordmark" loading="lazy" data-zoom>
+              <img class="dark-only" src="assets/images/tmo-wordmark4.l.png" width="1530" height="714" alt="Compact two-line wordmark" loading="lazy" data-zoom>
+            </div>
+            <div class="lockup">
+              <img class="light-only" src="assets/images/tmo-wordmark5.d.png" width="1530" height="657" alt="“TMO” monogram" loading="lazy" data-zoom>
+              <img class="dark-only" src="assets/images/tmo-wordmark5.l.png" width="1530" height="657" alt="“TMO” monogram" loading="lazy" data-zoom>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social: eight posts. Images get data-zoom-group="social" so the enlarged view can step through them. -->
+      <section class="case-section case-section--wide" aria-labelledby="cs-social">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-social">SOCIAL</h2>
+          <p class="case-section__q">Click any post to flip through all eight.</p>
+        </header>
+        <div class="case-section__body">
+          <div class="case-grid case-grid--4">
+            <img src="assets/images/tmo-post1.png" width="1600" height="1600" alt="Instagram post 1: Two dancers in motion, one leaning back with an arm raised, framed by the paper-cut title type" loading="lazy" data-zoom data-zoom-group="social">
+            <img src="assets/images/tmo-post2.png" width="1600" height="1600" alt="Instagram post 2: A ballet dancer in arabesque between the stacked title and the date, framed by the paper-cut title type" loading="lazy" data-zoom data-zoom-group="social">
+            <img src="assets/images/tmo-post3.png" width="1600" height="1600" alt="Instagram post 3: Two dancers reaching toward each other, one crouched low, framed by the paper-cut title type" loading="lazy" data-zoom data-zoom-group="social">
+            <img src="assets/images/tmo-post4.png" width="1600" height="1600" alt="Instagram post 4: A dancer bending sideways with one arm raised high, framed by the paper-cut title type" loading="lazy" data-zoom data-zoom-group="social">
+            <img src="assets/images/tmo-post5.png" width="1600" height="1600" alt="Instagram post 5: A dancer balancing upside down in a floor pose, framed by the paper-cut title type" loading="lazy" data-zoom data-zoom-group="social">
+            <img src="assets/images/tmo-post6.png" width="1600" height="1600" alt="Instagram post 6: A ballet dancer in arabesque beside the date and address, framed by the paper-cut title type" loading="lazy" data-zoom data-zoom-group="social">
+            <img src="assets/images/tmo-post7.png" width="1600" height="1600" alt="Instagram post 7: A dancer bending sideways, arm raised, in an alternate color layout, framed by the paper-cut title type" loading="lazy" data-zoom data-zoom-group="social">
+            <img src="assets/images/tmo-post8.png" width="1600" height="1600" alt="Instagram post 8: A dancer in a deep lunge with long braids swinging, framed by the paper-cut title type" loading="lazy" data-zoom data-zoom-group="social">
+          </div>
+        </div>
+      </section>
+
+      <!-- Beyond the Brief: merchandise the client didn't ask for -->
+      <section class="case-section case-section--wide" aria-labelledby="cs-beyond">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-beyond">BEYOND THE BRIEF</h2>
+          <p class="case-section__q">The brief stopped at posters and social media, but I wanted to see how far the identity could stretch, so I carried it onto apparel, totes and a hat.</p>
+        </header>
+        <div class="case-section__body">
+          <div class="merch">
+            <img class="merch__main" src="assets/images/tmo-shirt.png" width="2000" height="1339" alt="White T-shirt printed in navy with the stacked wordmark, the dancing-figures doodle and the exhibition date" loading="lazy" data-zoom>
+            <img class="merch__side" src="assets/images/tmo-foldedtshirt.png" width="2000" height="1339" alt="Folded T-shirt with an orange hang tag and a neck label carrying the wordmark" loading="lazy" data-zoom>
+            <img src="assets/images/tmo-bag.png" width="2000" height="1335" alt="White and navy tote bags printed with the wordmark, the exhibition date and halftone dancer photos" loading="lazy" data-zoom>
+            <img src="assets/images/tmo-cap.png" width="2000" height="1339" alt="Navy baseball cap with an orange brim, embroidered with the dancing-figures doodle and a small wordmark" loading="lazy" data-zoom>
+          </div>
+        </div>
+      </section>
+
+      <!-- Design decisions (full; condensed versions live in Approach) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-decisions">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-decisions">DESIGN DECISIONS</h2>
+        </header>
+        <div class="case-section__body">
+          <ol class="decisions decisions--3" role="list">
+            <li class="decision"><span class="decision__num" aria-hidden="true">01</span><h3 class="decision__title">Collage as the concept</h3><p class="decision__text">Sierra kept coming back to collage, so I designed custom lettering that looks cut from construction paper: chunky, oversized and a little imperfect, the way a hand-cut shape would be.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">02</span><h3 class="decision__title">Type that moves with the dancers</h3><p class="decision__text">Instead of setting text beside the photos, I shaped the letterforms around them. They bend and give way to the dancers’ outlines, so the type carries the same movement as the bodies it surrounds.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">03</span><h3 class="decision__title">Halftone for energy</h3><p class="decision__text">With full creative freedom over the photos, I turned them into monochrome halftones. The contrast gives them a printed, tactile texture that pairs with the paper-cut type, and Sierra liked it enough to ask me to push it further.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Reflection -->
+      <section class="case-section" aria-labelledby="cs-reflection">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-reflection">REFLECTION</h2>
+          <p class="case-section__q" data-only="condensed">What did I learn?</p>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">Designing for another artist’s work meant my job was to frame her photographs, not compete with them. Client feedback pushed me past a quiet first direction into something much bolder, and taking the identity further than the brief asked showed me how well a system holds up once it moves off the screen and onto real objects.</p>
+        </div>
+      </section>
+
+      <div class="section__action">
+        <a class="pill-button" href="work.html">
+          <span class="pill-button__label">SEE ALL WORK</span>
+          <span class="pill-button__arrow" aria-hidden="true"><span class="icon icon--arrow"></span></span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="site-footer__inner wrap">
+      <div class="site-footer__brand">
+        <a class="site-footer__home" href="index.html" aria-label="Cailin Kuhn — home">
+          <img class="site-footer__logo logo--light" src="assets/icons/logo-footer-light.svg" width="140" height="144" alt="">
+          <img class="site-footer__logo logo--dark" src="assets/icons/logo-footer-dark.svg" width="140" height="144" alt="">
+        </a>
+        <p class="site-footer__tagline">LET<span class="apos">’</span>S GO EXPLORING</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="footer-menu">
+        <h2 class="footer-col__title" id="footer-menu">MENU</h2>
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#playground">Playground</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-col__title"><span class="light-only">FIND ME IN THE FIELD</span><span class="dark-only">SEND A SIGNAL</span></h2>
+        <ul role="list">
+          <li><a href="mailto:cailinmkuhn@gmail.com">cailinmkuhn@gmail.com</a></li>
+          <li><a href="tel:+19149990923">+1 (914)-999-0923</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/contours.js"></script>
+  <script src="js/case.js"></script>
+  <script src="js/lightbox.js"></script>
+</body>
+</html>
