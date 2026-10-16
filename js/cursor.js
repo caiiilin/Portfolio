@@ -34,6 +34,13 @@
   window.addEventListener('pointercancel', release);
   window.addEventListener('blur', release);
 
+  // The ring grows over the header logo, like it does over other clickable art.
+  var logo = document.querySelector('.site-header__logo');
+  if (logo) {
+    logo.addEventListener('mouseenter', function () { cursor.classList.add('is-target'); });
+    logo.addEventListener('mouseleave', function () { cursor.classList.remove('is-target'); });
+  }
+
   // Hide when the mouse leaves the window.
   document.addEventListener('pointerout', function (e) {
     if (!e.relatedTarget) cursor.classList.remove('is-visible');
