@@ -170,7 +170,15 @@ a { color: inherit; text-decoration: none; }
   width: clamp(56px, 5.104vw, 98px);        /* 98 × 99 */
   margin-left: -6px;                        /* logo sits at x=69 vs 75 gutter */
 }
-.site-header__logo .logo { width: 100%; height: auto; }
+.site-header__logo .logo {
+  width: 100%;
+  height: auto;
+  transition: transform .45s cubic-bezier(.34, 1.56, .64, 1);   /* slight overshoot, like a head tilt */
+}
+/* Hover: the creature cocks its head. Click: a quick squish. */
+.site-header__logo:hover .logo,
+.site-header__logo:focus-visible .logo { transform: rotate(-10deg) scale(1.06); }
+.site-header__logo:active .logo { transform: rotate(-4deg) scale(.9); transition-duration: .12s; }
 /* Header + footer logos swap per theme. */
 .logo--dark { display: none; }
 [data-theme="dark"] .logo--light { display: none; }
