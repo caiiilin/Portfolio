@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Cailin Kuhn</title>
+  <meta name="description" content="Cailin Kuhn Portfolio.">
+  <script>
+    // Apply saved/system theme before paint to avoid a flash.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-dark.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-light.svg" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header wrap">
+    <a class="site-header__logo" href="index.html" aria-label="Cailin Kuhn — home">
+      <img class="logo logo--light" src="assets/icons/logo-header-dark.svg" width="98" height="99" alt="">
+      <img class="logo logo--dark" src="assets/icons/logo-header-light.svg" width="98" height="99" alt="">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="work.html">MY WORK</a>
+      <a href="about.html">ABOUT</a>
+      <a href="playground.html">PLAYGROUND</a>
+      <a href="contact.html" aria-current="page">CONTACT</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-label-light="LAND" data-label-dark="SEA">
+      <span class="theme-toggle__icon" aria-hidden="true"><span class="icon icon--sun"></span><span class="icon icon--moon"></span></span>
+      <span class="theme-toggle__label">LAND</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- Contact: land = a postcard, sea = a signal transmission. js/contact.js -->
+    <article class="contact section--page-top wrap" aria-labelledby="contact-title">
+      <div class="label-row">
+        <p class="label">05.<span class="light-only">Leave_A_Note</span><span class="dark-only">Send_Signal</span></p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end">based in rochester, ny · eastern time</p>
+      </div>
+      <h1 class="display display--section display--tight" id="contact-title"><span class="light-only">SAY HI</span><span class="dark-only">SEND A SIGNAL</span></h1>
+
+      <div class="contact__intro">
+        <p class="contact__lede">Have a project, an opportunity, or <span class="light-only">a good bird sighting</span><span class="dark-only">a sea creature you think is underrated</span>? I’d love to hear from you.</p>
+        <p class="status__availability"><span class="status__dot" aria-hidden="true"></span><span>Open to freelance work now · full-time roles from May 2027</span></p>
+      </div>
+
+      <!-- The card: write a note on the left, details on the right. "Send" opens the visitor's own
+           email app with the note filled in, so there's no form service to run. -->
+      <div class="postcard">
+        <form class="postcard__note" id="note-form">
+          <label class="postcard__label" for="note-message"><span class="light-only">Write me a note</span><span class="dark-only">Compose a transmission</span></label>
+          <textarea class="postcard__message" id="note-message" name="message" rows="7" placeholder="Hi Cailin, …"></textarea>
+          <label class="postcard__label" for="note-name">From</label>
+          <input class="postcard__from" id="note-name" name="name" type="text" autocomplete="name" placeholder="Your name">
+          <button class="pill-button pill-button--small" type="submit">
+            <span class="pill-button__label"><span class="light-only">SEND THE POSTCARD</span><span class="dark-only">SEND THE SIGNAL</span></span>
+            <span class="pill-button__arrow" aria-hidden="true"><span class="icon icon--arrow"></span></span>
+          </button>
+          <p class="postcard__hint">Opens your email app with your note filled in.</p>
+        </form>
+
+        <div class="postcard__address">
+          <div class="postcard__stamp" aria-hidden="true">
+            <img class="logo--light" src="assets/icons/logo-footer-light.svg" width="140" height="144" alt="">
+            <img class="logo--dark" src="assets/icons/logo-header-light.svg" width="98" height="99" alt="">
+          </div>
+          <dl class="postcard__lines">
+            <div>
+              <dt>Email</dt>
+              <dd>
+                <a href="mailto:cailinmkuhn@gmail.com">cailinmkuhn@gmail.com</a>
+                <button type="button" class="copy-button" data-copy="cailinmkuhn@gmail.com"><span class="copy-button__label">copy</span></button>
+              </dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd><a href="tel:+19149990923">+1 (914)-999-0923</a></dd>
+            </div>
+            <div>
+              <dt>Elsewhere</dt>
+              <dd><a class="text-link" href="https://www.linkedin.com/in/cailin-kuhn-6b2602256" target="_blank" rel="noopener"><span class="text-link__label">LinkedIn</span><span class="icon icon--arrow" aria-hidden="true"></span></a></dd>
+            </div>
+            <div>
+              <dt>Résumé</dt>
+              <dd><a class="text-link" href="assets/documents/KuhnResume.pdf" target="_blank" rel="noopener"><span class="text-link__label">View my résumé (PDF)</span><span class="icon icon--arrow" aria-hidden="true"></span></a></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <p class="contact__signoff" aria-hidden="true"><span class="light-only">thanks for stopping by :)</span><span class="dark-only">signal received. thanks for diving in :)</span></p>
+    </article>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="site-footer__inner wrap">
+      <div class="site-footer__brand">
+        <a class="site-footer__home" href="index.html" aria-label="Cailin Kuhn — home">
+          <img class="site-footer__logo logo--light" src="assets/icons/logo-footer-light.svg" width="140" height="144" alt="">
+          <img class="site-footer__logo logo--dark" src="assets/icons/logo-footer-dark.svg" width="140" height="144" alt="">
+        </a>
+        <p class="site-footer__tagline">LET<span class="apos">’</span>S GO EXPLORING</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="footer-menu">
+        <h2 class="footer-col__title" id="footer-menu">MENU</h2>
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-col__title"><span class="light-only">FIND ME IN THE FIELD</span><span class="dark-only">SEND A SIGNAL</span></h2>
+        <ul role="list">
+          <li><a href="mailto:cailinmkuhn@gmail.com">cailinmkuhn@gmail.com</a></li>
+          <li><a href="tel:+19149990923">+1 (914)-999-0923</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/contours.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
