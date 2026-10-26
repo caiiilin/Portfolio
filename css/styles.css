@@ -1167,6 +1167,193 @@ video.lightbox__media { width: min(100%, (100dvh - 2 * var(--lb-pad-y)) * 16 / 9
 /* Sea mode: buttons pulse in time with the availability dot (same keyframes). */
 [data-theme="dark"] .pill-button { animation: status-pulse 2.4s ease-out infinite; }
 
+/* ---------- Playground (playground.html, js/playground.js) ---------- */
+
+.playground__intro { max-width: 36em; margin-top: var(--sp-content); font-size: var(--fs-body); line-height: 1.3; }
+
+.playground__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin-top: clamp(40px, 4.167vw, 80px);
+}
+
+/* Category stickers: slightly crooked, straighten on hover. */
+.stickers { display: flex; flex-wrap: wrap; gap: 10px; }
+.sticker {
+  --tilt: -2deg;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--c-ink) 9%, transparent);
+  color: var(--c-ink);
+  font: 700 var(--fs-tag) / 1 var(--f-button);
+  letter-spacing: .04em;
+  cursor: pointer;
+  transform: rotate(var(--tilt));
+  transition: transform .25s var(--ease), background-color .2s var(--ease), color .2s var(--ease);
+}
+.sticker:nth-child(even) { --tilt: 2deg; }
+.sticker:hover { transform: rotate(0) scale(1.05); }
+.sticker[aria-pressed="true"] { background: var(--c-button); color: var(--c-bg); }
+
+.playground__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+button.pill-button { border: 0; background: none; cursor: pointer; }
+.pill-button--small { padding: 12px 26px; font-size: var(--fs-tag); }
+.when-tidy { display: none; }
+.playground[data-layout="tidy"] .when-messy { display: none; }
+.playground[data-layout="tidy"] .when-tidy { display: inline; }
+
+/* The desk: pieces are absolutely placed by --x / --y / --w / --r. */
+.desk {
+  position: relative;
+  height: clamp(800px, 60cqi, 1150px);
+  margin-top: var(--sp-content);
+}
+.desk::before {                              /* wireframe outline of the play area */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px dashed color-mix(in srgb, var(--c-ink) 18%, transparent);
+  border-radius: var(--radius);
+  pointer-events: none;
+}
+.desk__pile { margin: 0; padding: 0; list-style: none; }
+
+.piece {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  z-index: var(--z, 1);
+  width: var(--w);
+  transform: rotate(var(--r));
+  touch-action: none;
+  transition: transform .3s var(--ease), left .7s var(--ease), top .7s var(--ease), opacity .3s var(--ease), filter .3s var(--ease);
+}
+.piece.is-dragging { transition: none; transform: rotate(var(--r)) scale(1.04); }
+.piece__card {
+  display: block;
+  width: 100%;
+  padding: 10px 10px 14px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--c-bg);
+  color: inherit;
+  text-align: left;
+  cursor: grab;
+  box-shadow: 0 8px 22px rgb(0 0 0 / .12), 0 1px 3px rgb(0 0 0 / .12);
+  transition: box-shadow .25s var(--ease);
+}
+.piece:hover .piece__card { box-shadow: 0 14px 32px rgb(0 0 0 / .18), 0 2px 6px rgb(0 0 0 / .12); }
+.piece.is-dragging .piece__card { cursor: grabbing; box-shadow: 0 24px 48px rgb(0 0 0 / .25); }
+.piece__media { display: block; overflow: hidden; border-radius: 2px; background: color-mix(in srgb, var(--c-ink) 8%, transparent); pointer-events: none; }
+.piece__media img,
+.piece__media video { display: block; width: 100%; height: auto; }
+.piece__label { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-top: 12px; }
+.piece__title { flex: 1 1 100%; font-size: var(--fs-tag); font-weight: 700; line-height: 1.15; }
+.tag {
+  padding: 4px 7px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--c-ink) 10%, transparent);
+  font: 700 12px / 1 var(--f-button);
+  letter-spacing: .05em;
+}
+.tag--wip { background: var(--c-nav); color: var(--c-bg); }
+
+/* Land: pieces are taped into the sketchbook. */
+:root:not([data-theme="dark"]) .piece::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  z-index: 1;
+  width: 34%;
+  height: 22px;
+  background: rgb(214 196 150 / .7);
+  transform: translateX(-50%) rotate(-3deg);
+}
+/* Sea: pieces float in the tank, bobbing out of step with each other. */
+[data-theme="dark"] .piece__card {
+  background: color-mix(in srgb, var(--c-ink) 7%, var(--c-bg));
+  animation: bob 6s ease-in-out var(--d, 0s) infinite;
+}
+@keyframes bob { 50% { translate: 0 -10px; } }
+
+/* Sticker filter: picked pieces come forward, the rest fade back. */
+.desk.is-filtering .piece:not(.is-picked) { opacity: .3; filter: grayscale(.7); }
+
+/* Margin doodles ride along with their piece (and its tilt). */
+.piece__doodle {
+  position: absolute;
+  color: var(--c-nav);
+  font: 400 clamp(22px, 1.771vw, 34px) / 1 var(--f-display);
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.piece__doodle--above { bottom: 100%; left: 50%; margin-bottom: 18px; transform: translateX(-50%) rotate(-3deg); }
+.piece__doodle--above-left { bottom: 100%; left: 2%; margin-bottom: 16px; text-align: left; transform: rotate(-3deg); }
+.piece__doodle--below { top: 100%; left: 8%; margin-top: 14px; transform: rotate(2deg); }
+.piece__doodle--right { top: 48%; left: 100%; margin-left: 16px; transform: rotate(-4deg); }
+
+/* Tidy (and every phone): a plain grid, no tilt, no tape, no doodles. */
+.playground[data-layout="tidy"] .desk { height: auto; }
+.playground[data-layout="tidy"] .desk::before,
+.playground[data-layout="tidy"] .piece__doodle,
+.playground[data-layout="tidy"] .piece::before { display: none; }
+.playground[data-layout="tidy"] .desk__pile {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(200px, 18cqi, 320px), 1fr));
+  gap: var(--gap);
+}
+.playground[data-layout="tidy"] .piece { position: relative; left: auto; top: auto; width: auto; transform: none; }
+.playground[data-layout="tidy"] .piece__card { cursor: pointer; animation: none; }
+.playground[data-layout="tidy"] .piece__media { aspect-ratio: 4 / 3; }
+.playground[data-layout="tidy"] .piece__media img,
+.playground[data-layout="tidy"] .piece__media video { height: 100%; object-fit: cover; }
+
+/* Note card that opens when a piece is clicked. */
+.note-card {
+  width: min(720px, calc(100% - 32px));
+  max-height: calc(100dvh - 48px);
+  padding: clamp(24px, 2.5vw, 48px);
+  border: 0;
+  border-radius: 8px;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  overflow: auto;
+}
+.note-card::backdrop { background: rgb(8 16 26 / .7); backdrop-filter: blur(3px); }
+.note-card[open] { animation: lightbox-zoom .3s var(--ease); }
+.note-card__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform .3s var(--ease);
+}
+.note-card__close:hover { transform: rotate(90deg); }
+.note-card__close svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.note-card .placeholder { margin-bottom: 24px; }
+.note-card > .piece__media { margin-bottom: 24px; border-radius: var(--radius); }
+.note-card__type { color: var(--c-nav); font-size: var(--fs-tag); }
+.note-card h2 { margin-top: 10px; font: 400 clamp(40px, 3.333vw, 64px) / .9 var(--f-display); }
+.note-card p { margin-top: 16px; font-size: var(--fs-meta); line-height: 1.4; }
+.note-card .note-card__testing { color: var(--c-nav); }
+:root:not([data-theme="dark"]) .note-card .note-card__testing { font: 400 clamp(24px, 1.667vw, 32px) / 1.1 var(--f-display); }
+.note-card .pill-button { margin-top: 24px; }
+
 /* ---------- Footer ---------- */
 
 .site-footer {
@@ -1324,6 +1511,7 @@ body::before {
 }
 
 @media (max-width: 700px) {
+  .playground__actions { display: none; }   /* phones always get the tidy grid */
   .label-row { flex-wrap: wrap; row-gap: 14px; }
   .case-grid--2, .case-grid--3, .case__facts--grid, .decisions { grid-template-columns: 1fr; }
   .case-grid--4, .case-grid--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1358,5 +1546,7 @@ body::before {
   .pin::after,
   .lightbox[open],
   .lightbox[open]::backdrop,
-  .lightbox__media { animation: none !important; }
+  .lightbox__media,
+  .note-card[open],
+  .piece__card { animation: none !important; }
 }
