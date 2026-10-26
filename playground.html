@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playground — Cailin Kuhn</title>
+  <meta name="description" content="Cailin Kuhn Portfolio.">
+  <script>
+    // Apply saved/system theme before paint to avoid a flash.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-dark.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-light.svg" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header wrap">
+    <a class="site-header__logo" href="index.html" aria-label="Cailin Kuhn — home">
+      <img class="logo logo--light" src="assets/icons/logo-header-dark.svg" width="98" height="99" alt="">
+      <img class="logo logo--dark" src="assets/icons/logo-header-light.svg" width="98" height="99" alt="">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="work.html">MY WORK</a>
+      <a href="about.html">ABOUT</a>
+      <a href="playground.html" aria-current="page">PLAYGROUND</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-label-light="LAND" data-label-dark="SEA">
+      <span class="theme-toggle__icon" aria-hidden="true"><span class="icon icon--sun"></span><span class="icon icon--moon"></span></span>
+      <span class="theme-toggle__label">LAND</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- Playground (wireframe). Desktop: a scattered "desk" you can drag pieces around on
+         (land = sketchbook, sea = specimen tank). "Tidy up" and phones get a plain grid. js/playground.js -->
+    <article class="playground section--page-top wrap" aria-labelledby="playground-title" data-layout="messy">
+      <div class="label-row">
+        <p class="label">04.<span class="light-only">Sketchbook</span><span class="dark-only">Lab_Tests</span></p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end"><span class="light-only">drag things around, it’s fine</span><span class="dark-only">handle with care (or don’t)</span></p>
+      </div>
+      <h1 class="display display--section display--tight" id="playground-title">PLAYGROUND</h1>
+
+      <p class="playground__intro">Side projects, experiments and things that didn’t need a reason. Pick something up, move it around, open it for notes.</p>
+
+      <div class="playground__tools">
+        <div class="stickers" role="group" aria-label="Highlight by type">
+          <button type="button" class="sticker" data-filter="all" aria-pressed="true">ALL</button>
+          <button type="button" class="sticker" data-filter="motion" aria-pressed="false">MOTION</button>
+          <button type="button" class="sticker" data-filter="ui" aria-pressed="false">UI</button>
+          <button type="button" class="sticker" data-filter="code" aria-pressed="false">CODE</button>
+          <button type="button" class="sticker" data-filter="branding" aria-pressed="false">BRANDING</button>
+        </div>
+        <div class="playground__actions">
+          <button type="button" class="pill-button pill-button--small" data-action="shuffle">
+            <span class="pill-button__label"><span class="light-only">SHAKE THE SKETCHBOOK</span><span class="dark-only">STIR THE TANK</span></span>
+          </button>
+          <button type="button" class="pill-button pill-button--small" data-action="tidy" aria-pressed="false">
+            <span class="pill-button__label"><span class="when-messy">TIDY UP</span><span class="when-tidy">MESS IT UP</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- The desk. Each piece: --x / --y = position (% of the desk), --w = width (% of the desk), --r = tilt.
+           A piece’s margin doodle lives inside it, so it travels with the card when dragged. -->
+      <div class="desk">
+
+        <ul class="desk__pile" role="list">
+          <li class="piece" data-type="ui" style="--x: 2%; --y: 4%; --w: 26%; --r: -4deg">
+            <button type="button" class="piece__card" data-note="scout">
+              <span class="piece__media"><img src="assets/images/scout-one.jpg" width="1600" height="900" alt="Scout One smart binoculars render" loading="lazy"></span>
+              <span class="piece__label"><span class="piece__title">SCOUT ONE</span><span class="tag">UI</span></span>
+            </button>
+          </li>
+          <li class="piece" data-type="motion" style="--x: 31%; --y: 9%; --w: 20%; --r: 3deg">
+            <button type="button" class="piece__card" data-note="framer">
+              <span class="piece__media"><video src="assets/videos/framer-square.mp4" poster="assets/images/framer-brand-ident.jpg" width="720" height="720" muted loop playsinline preload="none" aria-label="Framer brand ident: layered website layouts sliding past each other"></video></span>
+              <span class="piece__label"><span class="piece__title">FRAMER BRAND IDENT</span><span class="tag">MOTION</span></span>
+            </button>
+          </li>
+          <li class="piece" data-type="motion" style="--x: 55%; --y: 12%; --w: 20%; --r: -2deg">
+            <button type="button" class="piece__card" data-note="broadcity">
+              <span class="piece__media"><video src="assets/videos/broadCity-square.mp4" poster="assets/images/broad-city-opener.jpg" width="720" height="720" muted loop playsinline preload="none" aria-label="Broad City opener animation of two friends high-fiving"></video></span>
+              <span class="piece__label"><span class="piece__title">BROAD CITY</span><span class="tag">MOTION</span></span>
+            </button>
+            <p class="piece__doodle piece__doodle--above" aria-hidden="true">so much fun to make! ↓</p>
+          </li>
+          <li class="piece" data-type="ui" style="--x: 85%; --y: 3%; --w: 11%; --r: 5deg">
+            <button type="button" class="piece__card" data-note="spotify">
+              <span class="piece__media"><img src="assets/images/studySpace-title.png" width="428" height="926" alt="Spotify Study Space screen: a circular study timer over drifting dots, with the music player below" loading="lazy"></span>
+              <span class="piece__label"><span class="piece__title">SPOTIFY STUDY SPACE</span><span class="tag">UI</span></span>
+            </button>
+          </li>
+          <li class="piece" data-type="code" style="--x: 3%; --y: 45%; --w: 26%; --r: 2deg">
+            <button type="button" class="piece__card" data-note="orbis">
+              <span class="piece__media"><img src="assets/images/orbis-title.png" width="1600" height="772" alt="Orbis: a glowing ring drawn in light lines floating in a starry space, with constellation lines nearby" loading="lazy"></span>
+              <span class="piece__label"><span class="piece__title">ORBIS</span><span class="tag">CODE</span><span class="tag tag--wip">IN PROGRESS</span></span>
+            </button>
+          </li>
+          <li class="piece" data-type="code" style="--x: 32%; --y: 55%; --w: 30%; --r: -3deg">
+            <button type="button" class="piece__card" data-note="polaris">
+              <span class="piece__media"><video src="assets/videos/polaris-title.mp4" poster="assets/images/polaris-title.jpg" width="1280" height="720" muted loop playsinline preload="none" aria-label="Polaris installation: a person moving their hands in front of a wall projection of swirling particles"></video></span>
+              <span class="piece__label"><span class="piece__title">POLARIS</span><span class="tag">CODE</span></span>
+            </button>
+            <p class="piece__doodle piece__doodle--below" aria-hidden="true">↑ we built this in three days!</p>
+          </li>
+          <li class="piece" data-type="branding" style="--x: 66%; --y: 61%; --w: 21%; --r: 4deg">
+            <button type="button" class="piece__card" data-note="sierra">
+              <span class="piece__media"><img src="assets/images/sierra-businesscards.png" width="1600" height="1067" alt="Sierra Allen business cards in black with a green swoosh, scattered on a table" loading="lazy"></span>
+              <span class="piece__label"><span class="piece__title">SIERRA BRANDING</span><span class="tag">BRANDING</span><span class="tag tag--wip">IN PROGRESS</span></span>
+            </button>
+            <p class="piece__doodle piece__doodle--above-left" aria-hidden="true">the newest one<br>(still under construction) ↓</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Notes that open when a piece is clicked (js/playground.js copies the matching one into the dialog). -->
+      <template id="notes">
+        <section data-note="scout" data-type-label="UI · Product concept">
+          <h2>SCOUT ONE</h2>
+          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
+          <p>A concept for a pair of smart binoculars that specialize in identifying animals and their behaviors.</p>
+        </section>
+        <section data-note="framer" data-type-label="Motion · Series of 3">
+          <h2>FRAMER BRAND IDENT</h2>
+          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
+          <p>A series of three motion graphics pieces promoting the website design platform Framer.</p>
+        </section>
+        <section data-note="broadcity" data-type-label="Motion · Series of 3">
+          <h2>BROAD CITY</h2>
+          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
+          <p>A title sequence for the show <cite>Broad City</cite>, with two companion advertisements.</p>
+        </section>
+        <section data-note="spotify" data-type-label="UI · Feature concept">
+          <h2>SPOTIFY STUDY SPACE</h2>
+          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
+          <p>A concept for a Spotify feature that lets you set a study timer. While it runs, it limits what you can do in the app and plays calming visuals.</p>
+        </section>
+        <section data-note="orbis" data-type-label="Code · Interactive · In progress" data-link="#">
+          <h2>ORBIS</h2>
+          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
+          <p>An interactive digital Etch A Sketch. <span class="is-placeholder">Add the context someone needs before trying it.</span></p>
+        </section>
+        <section data-note="polaris" data-type-label="Code · Hand tracking" data-link="#">
+          <h2>POLARIS</h2>
+          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
+          <p>An interactive experience that uses hand tracking to explore gravity and clashing forces.</p>
+        </section>
+        <section data-note="sierra" data-type-label="Branding · In progress">
+          <h2>SIERRA BRANDING</h2>
+          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
+          <p>A brand system in progress for a photographer friend. So far: two logos and a business card.</p>
+        </section>
+      </template>
+    </article>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="site-footer__inner wrap">
+      <div class="site-footer__brand">
+        <a class="site-footer__home" href="index.html" aria-label="Cailin Kuhn — home">
+          <img class="site-footer__logo logo--light" src="assets/icons/logo-footer-light.svg" width="140" height="144" alt="">
+          <img class="site-footer__logo logo--dark" src="assets/icons/logo-footer-dark.svg" width="140" height="144" alt="">
+        </a>
+        <p class="site-footer__tagline">LET<span class="apos">’</span>S GO EXPLORING</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="footer-menu">
+        <h2 class="footer-col__title" id="footer-menu">MENU</h2>
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-col__title"><span class="light-only">FIND ME IN THE FIELD</span><span class="dark-only">SEND A SIGNAL</span></h2>
+        <ul role="list">
+          <li><a href="mailto:cailinmkuhn@gmail.com">cailinmkuhn@gmail.com</a></li>
+          <li><a href="tel:+19149990923">+1 (914)-999-0923</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/contours.js"></script>
+  <script src="js/playground.js"></script>
+</body>
+</html>
