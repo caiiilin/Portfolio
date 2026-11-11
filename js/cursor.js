@@ -34,6 +34,15 @@
   window.addEventListener('pointercancel', release);
   window.addEventListener('blur', release);
 
+  // Links with data-cursor-label turn the ring into a badge with that word;
+  // data-cursor-label-dark swaps in a sea-mode word (e.g. TAKE FLIGHT / DIVE IN).
+  document.addEventListener('pointerover', function (e) {
+    var el = e.target.closest && e.target.closest('[data-cursor-label]');
+    if (!el) { delete cursor.dataset.label; return; }
+    var sea = document.documentElement.dataset.theme === 'dark';
+    cursor.dataset.label = (sea && el.dataset.cursorLabelDark) || el.dataset.cursorLabel;
+  });
+
   // Hide when the mouse leaves the window.
   document.addEventListener('pointerout', function (e) {
     if (!e.relatedTarget) cursor.classList.remove('is-visible');

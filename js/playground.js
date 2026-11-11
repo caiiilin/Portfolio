@@ -69,14 +69,17 @@
     p.addEventListener('pointerdown', function (e) {
       if (page.dataset.layout !== 'messy' || e.button !== 0) return;
       p.style.setProperty('--z', ++topZ);
+      delete p.dataset.dragged;
       start = { x: e.clientX, y: e.clientY, left: p.offsetLeft, top: p.offsetTop, moved: false };
-      p.setPointerCapture(e.pointerId);
     });
 
     p.addEventListener('pointermove', function (e) {
       if (!start) return;
       var dx = e.clientX - start.x, dy = e.clientY - start.y;
       if (!start.moved && Math.abs(dx) + Math.abs(dy) < 5) return;
+      // Only grab the pointer once it's really a drag. Capturing on press would
+      // send a plain click to the wrapper instead of the card, so notes wouldn't open.
+      if (!start.moved) p.setPointerCapture(e.pointerId);
       start.moved = true;
       p.classList.add('is-dragging');
       var dw = desk.clientWidth, dh = desk.clientHeight;
@@ -131,15 +134,25 @@
       '<button type="button" class="note-card__close" aria-label="Close note">' +
         '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>' +
       '</button>';
-    var media = piece.querySelector('.piece__media').cloneNode(true);
-    dialog.appendChild(media);
-    var vid = media.querySelector('video');
-    if (vid) { vid.muted = true; vid.play().catch(function () {}); }   // videos loop in the note
-    var type = document.createElement('p');
-    type.className = 'note-card__type';
+    dialog.classList.toggle('note-card--wide', 'wide' in src.dataset);
+    // Expanded notes bring their own images; the rest reuse the card's picture or video.
+    if (!('ownMedia' in src.dataset)) {
+      var media = piece.querySelector('.piece__media').cloneNode(true);
+      dialog.appendChild(media);
+      var vid = media.querySelector('video');
+      if (vid) { vid.muted = true; vid.play().catch(function () {}); }   // videos loop in the note
+    }
+    var body = src.cloneNode(true);
+    var type = body.querySelector('.note-card__type');
+    if (!type) {
+      type = document.createElement('p');
+      type.className = 'note-card__type';
+      body.insertBefore(type, body.firstChild);
+    }
     type.textContent = src.dataset.typeLabel || '';
-    dialog.appendChild(type);
-    Array.prototype.forEach.call(src.children, function (c) { dialog.appendChild(c.cloneNode(true)); });
+    while (body.firstChild) dialog.appendChild(body.firstChild);
+    // Looping clips in an expanded note start on their own (muted); the main video waits for play.
+    dialog.querySelectorAll('video[autoplay]').forEach(function (v) { v.muted = true; v.play().catch(function () {}); });
     if (src.dataset.link) {
       var a = document.createElement('a');
       a.className = 'pill-button';
@@ -163,13 +176,15 @@
     if (e.target === dialog && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) dialog.close();
   });
   dialog.addEventListener('close', function () {
+    dialog.querySelectorAll('video').forEach(function (v) { v.pause(); });   // no sound after closing
     var c = cursor();
     if (c) document.body.appendChild(c);
     document.documentElement.classList.remove('has-lightbox');
   });
 
   pieces.forEach(function (p) {
-    p.querySelector('.piece__card').addEventListener('click', function () {
+    // Listen on the whole piece: after a drag the click can land on the wrapper, not the card.
+    p.addEventListener('click', function () {
       if (p.dataset.dragged) { delete p.dataset.dragged; return; }
       open(p);
     });

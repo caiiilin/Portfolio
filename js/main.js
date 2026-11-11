@@ -50,6 +50,11 @@
     '<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">' +
     inked('pencil-line', '-2%', '-300%', '104%', '700%', '0.012 0.03', 3.5) +
     inked('pencil-box', '-4%', '-15%', '108%', '130%', '0.02', 4) +
+    // Hand-drawn strokes (margin-note arrows): just a slightly roughened edge, no grain.
+    '<filter id="pencil-stroke" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">' +
+      '<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="noise"/>' +
+      '<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.9" xChannelSelector="R" yChannelSelector="G"/>' +
+    '</filter>' +
     '</svg>');
 })();
 

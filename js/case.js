@@ -72,3 +72,17 @@
     if (pins.length) activate(pins[0].dataset.note);
   });
 })();
+
+/* Next case study: hidden until it scrolls into view, then fades up.
+   Without JS (or IntersectionObserver) it simply stays visible. */
+(function () {
+  var next = document.querySelector('.next-case');
+  if (!next || !window.IntersectionObserver) return;
+  next.classList.add('is-pending');
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+    next.classList.remove('is-pending');
+    io.disconnect();
+  }, { threshold: 0.25 });
+  io.observe(next);
+})();
