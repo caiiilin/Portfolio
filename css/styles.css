@@ -19,6 +19,10 @@
   --f-display: "East Sea Dokdo", "Comic Sans MS", cursive;
   --f-body: "Hanken Grotesk", system-ui, sans-serif;
   --f-button: "Darker Grotesque", "Hanken Grotesk", sans-serif;
+  /* Accent voice for little notes: handwriting on land, an instrument readout at sea.
+     --accent-scale evens out the two fonts' very different sizes. */
+  --f-accent: "Reenie Beanie", "Bradley Hand", cursive;
+  --accent-scale: 1.15;
 
   --fs-body: clamp(17px, 1.667vw, 32px);   /* 32 */
   --fs-meta: clamp(14px, 1.25vw, 24px);    /* 24 */
@@ -42,6 +46,8 @@
 }
 
 :root[data-theme="dark"] {
+  --f-accent: "IBM Plex Mono", ui-monospace, monospace;
+  --accent-scale: .54;
   --c-bg: #132845;
   --c-ink: #fff6e3;
   --c-navy: #fff6e3;
@@ -494,7 +500,18 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
   transition: background-color .25s var(--ease), color .25s var(--ease);
 }
-.case-view__switch button[aria-pressed="true"] { background: var(--c-button); color: var(--c-bg); }
+/* The selected fill is drawn on ::before so land mode can give it the same pencil wobble as the outline. */
+.case-view__switch button { position: relative; isolation: isolate; }
+.case-view__switch button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  transition: background-color .25s var(--ease);
+}
+.case-view__switch button[aria-pressed="true"] { color: var(--c-bg); }
+.case-view__switch button[aria-pressed="true"]::before { background: var(--c-button); }
 
 /* Sections: title on the left, content across two columns (like the intro). */
 .case { counter-reset: case-section; }
@@ -545,6 +562,7 @@ a { color: inherit; text-decoration: none; }
 }
 .decisions--stack { grid-template-columns: 1fr; gap: 24px; margin-top: var(--sp-card-meta); }
 .decisions--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.case-section__body > * + .decisions { margin-top: var(--sp-action); }   /* when a list follows copy */
 .decision { display: flex; flex-direction: column; gap: 12px; }
 .decision__num { font-size: var(--fs-tag); color: var(--c-nav); }
 .decision__title { font-size: var(--fs-body); font-weight: 700; line-height: 1.15; }
@@ -581,6 +599,7 @@ a { color: inherit; text-decoration: none; }
 .text-link:hover { color: var(--c-ink); }
 .text-link:hover .text-link__label::after { opacity: 1; }
 .text-link:hover .icon--arrow { transform: translate(3px, -3px); }   /* the icon points up-right: opens elsewhere */
+.case__links { display: flex; flex-wrap: wrap; gap: 16px clamp(24px, 2.5vw, 48px); }   /* several text links in a row */
 
 /* Placeholder frames for screens still to come. */
 .case-grid { display: grid; gap: var(--gap); }
@@ -589,6 +608,7 @@ a { color: inherit; text-decoration: none; }
 .case-grid__full { grid-column: 1 / -1; }
 .case-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .case-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.case-grid--narrow { max-width: 1040px; margin-inline: auto; }   /* tall pieces (posters) shown smaller than full width */
 
 /* Logo lockups: each centered in a soft square tile. */
 .lockup {
@@ -768,6 +788,98 @@ a { color: inherit; text-decoration: none; }
 }
 .media-frame { position: relative; }
 .media-frame video { background: #000; }
+
+/* Annotated phone screen (Merlin audit): a narrower screen beside its notes. */
+.annotated.annotated--phone { grid-template-columns: minmax(0, 280px) minmax(0, 1fr); }   /* 280 wide keeps the phone under one screen height */
+.annotated--phone .annotated__screen { grid-column: auto; }
+
+/* Before & after (Merlin): three pairs, each Merlin beside Bird Buddies with a short note. */
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-content) var(--gap);
+}
+.compare { display: flex; flex-direction: column; gap: 16px; margin: 0; }
+.compare__title { font-size: var(--fs-body); font-weight: 700; line-height: 1.15; }
+.compare__pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.compare__shot { display: flex; flex-direction: column; gap: 10px; }
+/* Both screens share one height: the redesign loses its empty status-bar strip, like the cropped originals. */
+.compare__shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 393 / 802;
+  object-fit: cover;
+  object-position: bottom;
+  border-radius: var(--radius);
+}
+.compare__label { color: var(--c-nav); font-size: var(--fs-tag); }
+.compare__text { font-size: var(--fs-meta); line-height: 1.35; }
+
+/* Next case study: a full-screen panel at the end of each study (after the old Framer site).
+   The words fade up when it scrolls into view; on hover the cover rises from the bottom edge
+   and the custom cursor turns into a VIEW badge (js/case.js, js/cursor.js). */
+.next-case { margin-top: clamp(64px, 6.25vw, 120px); }
+.next-case__link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 1.25vw, 24px);
+  min-height: 92svh;
+  padding-bottom: 16svh;                 /* lifts the words, leaving room above the rising cover */
+  overflow: hidden;
+  border-top: 2px solid color-mix(in srgb, var(--c-ink) 20%, transparent);
+  color: inherit;
+  text-align: center;
+}
+.next-case__label,
+.next-case__title,
+.next-case__meta { position: relative; z-index: 1; transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.next-case__label { color: var(--c-nav); font-size: var(--fs-tag); }
+.next-case__title { font: 400 clamp(56px, 8cqi, 160px) / .9 var(--f-display); transition-delay: .08s; }
+.next-case__meta { font-size: var(--fs-meta); transition-delay: .16s; }
+/* Hidden instantly until it scrolls into view, then each line rises in turn. */
+.next-case.is-pending .next-case__label,
+.next-case.is-pending .next-case__title,
+.next-case.is-pending .next-case__meta { opacity: 0; transform: translateY(48px); transition: none; }
+.next-case__media {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(34%, 520px);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0;
+  opacity: 0;
+  transform: translate(-50%, 75%);
+  transition: opacity .5s var(--ease), transform .7s var(--ease);
+  pointer-events: none;
+}
+.next-case__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.next-case__link:hover .next-case__media,
+.next-case__link:focus-visible .next-case__media { opacity: 1; transform: translate(-50%, 22%); }
+/* Touch screens can't hover: show the cover under the title instead. */
+@media (hover: none) {
+  .next-case__link { min-height: 80svh; }
+  .next-case__media { position: relative; left: auto; width: min(100%, 420px); margin-top: 16px; border-radius: var(--radius); opacity: 1; transform: none; }
+}
+
+.case__wide-img,
+.case-figure > img,
+.case-figure > .zoom-trigger img { display: block; width: 100%; height: auto; border-radius: var(--radius); }
+.case-grid--7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+@media (max-width: 900px) {
+  .annotated.annotated--phone { grid-template-columns: minmax(0, 240px) minmax(0, 1fr); }
+  .compare-grid { grid-template-columns: 1fr; max-width: 560px; }
+  .case-grid--7 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .case-grid--7 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .annotated.annotated--phone { grid-template-columns: 1fr; }
+  .annotated--phone .annotated__screen { max-width: 300px; }
+}
 
 /* ---------- Lightbox (js/lightbox.js) ---------- */
 
@@ -1180,6 +1292,7 @@ video.lightbox__media { width: min(100%, (100dvh - 2 * var(--lb-pad-y)) * 16 / 9
 :root:not([data-theme="dark"]) .field-note::before,
 :root:not([data-theme="dark"]) .placeholder::before,
 :root:not([data-theme="dark"]) .case-view__switch::before,
+:root:not([data-theme="dark"]) .case-view__switch button::before,
 :root:not([data-theme="dark"]) .versions__tabs [role="tab"]::before { filter: url(#pencil-box); }
 
 /* Sea mode: buttons pulse in time with the availability dot (same keyframes). */
@@ -1308,7 +1421,7 @@ button.pill-button { border: 0; background: none; cursor: pointer; }
 .piece__doodle {
   position: absolute;
   color: var(--c-nav);
-  font: 400 clamp(22px, 1.771vw, 34px) / 1 var(--f-display);
+  font: 400 max(15px, calc(clamp(22px, 1.771vw, 34px) * var(--accent-scale))) / 1.05 var(--f-accent);
   text-align: center;
   white-space: nowrap;
   pointer-events: none;
@@ -1317,6 +1430,28 @@ button.pill-button { border: 0; background: none; cursor: pointer; }
 .piece__doodle--above-left { bottom: 100%; left: 2%; margin-bottom: 16px; text-align: left; transform: rotate(-3deg); }
 .piece__doodle--below { top: 100%; left: 8%; margin-top: 14px; transform: rotate(2deg); }
 .piece__doodle--right { top: 48%; left: 100%; margin-left: 16px; transform: rotate(-4deg); }
+/* Land: a hand-drawn arrow that sweeps out from the note and curves toward its card
+   (filter #pencil-stroke in js/main.js gives it a slightly uneven edge). Sea keeps a plain text arrow. */
+.doodle-arrow svg {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: url(#pencil-stroke);
+  pointer-events: none;
+}
+/* Down: starts beside the end of the note's last line and curls down onto the card below. */
+.doodle-arrow--down svg { left: 100%; bottom: -1.45em; margin-left: -.1em; transform: rotate(38deg); }   /* tilted so the tip hooks back toward the card */
+/* Up: the same stroke turned around, leaving the start of the note and curling up to the card above. */
+.doodle-arrow--up svg { right: 100%; top: -1.45em; margin-right: -.1em; transform: rotate(218deg); }
+/* Sea: notes become straight, printed readouts. */
+[data-theme="dark"] .piece__doodle { transform: none; }
+[data-theme="dark"] .piece__doodle--above { transform: translateX(-50%); }
 
 /* Tidy (and every phone): a plain grid, no tilt, no tape, no doodles. */
 .playground[data-layout="tidy"] .desk { height: auto; }
@@ -1325,7 +1460,7 @@ button.pill-button { border: 0; background: none; cursor: pointer; }
 .playground[data-layout="tidy"] .piece::before { display: none; }
 .playground[data-layout="tidy"] .desk__pile {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(200px, 18cqi, 320px), 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));   /* six pieces: two even rows */
   gap: var(--gap);
 }
 .playground[data-layout="tidy"] .piece { position: relative; left: auto; top: auto; width: auto; transform: none; }
@@ -1348,9 +1483,12 @@ button.pill-button { border: 0; background: none; cursor: pointer; }
 .note-card::backdrop { background: rgb(8 16 26 / .7); backdrop-filter: blur(3px); }
 .note-card[open] { animation: lightbox-zoom .3s var(--ease); }
 .note-card__close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
+  position: sticky;                    /* stays reachable while a long note scrolls */
+  top: 0;
+  z-index: 2;
+  float: right;
+  margin: calc(clamp(24px, 2.5vw, 48px) * -1 + 14px) calc(clamp(24px, 2.5vw, 48px) * -1 + 14px) -60px 12px;   /* takes no room: content runs underneath */
+  background: var(--c-bg);
   display: grid;
   place-items: center;
   width: 40px;
@@ -1358,7 +1496,6 @@ button.pill-button { border: 0; background: none; cursor: pointer; }
   padding: 0;
   border: 2px solid currentColor;
   border-radius: 50%;
-  background: none;
   color: inherit;
   cursor: pointer;
   transition: transform .3s var(--ease);
@@ -1371,8 +1508,36 @@ button.pill-button { border: 0; background: none; cursor: pointer; }
 .note-card h2 { margin-top: 10px; font: 400 clamp(40px, 3.333vw, 64px) / .9 var(--f-display); }
 .note-card p { margin-top: 16px; font-size: var(--fs-meta); line-height: 1.4; }
 .note-card .note-card__testing { color: var(--c-nav); }
-:root:not([data-theme="dark"]) .note-card .note-card__testing { font: 400 clamp(24px, 1.667vw, 32px) / 1.1 var(--f-display); }
+.note-card .note-card__testing { font: 400 max(15px, calc(clamp(24px, 1.667vw, 32px) * var(--accent-scale))) / 1.25 var(--f-accent); }
 .note-card .pill-button { margin-top: 24px; }
+
+/* Expanded notes (e.g. Scout One): wider card, intro beside a hero image, captioned figures. */
+.note-card--wide { width: min(1120px, calc(100% - 32px)); }
+.note-card__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 2.5vw, 48px);
+  align-items: center;
+}
+.note-card__hero,
+.note-card__figure img { display: block; width: 100%; height: auto; border-radius: var(--radius); }
+.note-card__figure { margin: clamp(32px, 3.333vw, 64px) 0 0; }
+.note-card__figure figcaption { margin-top: 12px; color: var(--c-nav); font-size: var(--fs-tag); line-height: 1.4; }
+.note-card__figure figcaption strong { color: var(--c-ink); }
+video.note-card__hero { margin-bottom: clamp(20px, 2.083vw, 40px); background: #000; }
+.note-card__figure video { display: block; width: 100%; height: auto; border-radius: var(--radius); background: #000; }
+/* Square + vertical cuts side by side at the same height (16fr : 9fr). */
+.note-card__formats { display: grid; grid-template-columns: 16fr 9fr; gap: var(--gap); align-items: end; max-width: 760px; margin-inline: auto; }
+.note-card__pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap); }
+.note-card__pair .note-card__figure { margin-top: clamp(24px, 2.5vw, 48px); }
+/* Cut-out character art sits on a paper panel so its black outlines still read at sea. */
+.note-card__figure--paper img {
+  aspect-ratio: 1;
+  object-fit: contain;
+  padding: 8%;
+  background: #f5f0e6;
+}
+.note-card__pair--characters { max-width: 760px; margin-inline: auto; }
 
 /* ---------- Contact (contact.html, js/contact.js) ---------- */
 
@@ -1413,7 +1578,7 @@ button.pill-button { border: 0; background: none; cursor: pointer; }
   border: 0;
   background: transparent;
   color: var(--c-ink);
-  font: 400 clamp(26px, 1.667vw, 32px) / 40px var(--f-display);   /* handwriting on ruled lines */
+  font: 400 var(--fs-meta) / 40px var(--f-body);                   /* sits on the ruled lines */
   resize: vertical;
   outline-offset: 4px;
 }
@@ -1476,7 +1641,7 @@ button.pill-button { border: 0; background: none; cursor: pointer; }
 .contact__signoff {
   margin-top: clamp(40px, 4.167vw, 80px);
   color: var(--c-nav);
-  font: 400 clamp(28px, 2.083vw, 40px) / 1 var(--f-display);
+  font: 400 max(15px, calc(clamp(28px, 2.083vw, 40px) * var(--accent-scale))) / 1 var(--f-accent);
   transform: rotate(-2deg);
   transform-origin: left;
 }
@@ -1509,6 +1674,7 @@ button.pill-button { border: 0; background: none; cursor: pointer; }
   animation: ping 2.4s ease-out infinite;
 }
 @keyframes ping { to { transform: scale(1.8); opacity: 0; } }
+[data-theme="dark"] .contact__signoff { transform: none; }
 
 /* ---------- Footer ---------- */
 
@@ -1621,12 +1787,27 @@ body::before {
 .cursor.is-target { width: 40px; height: 40px; margin: -20px 0 0 -20px; }
 .cursor.is-visible { opacity: 1; }
 .cursor.is-pressed { background-color: var(--c-ink); }
+/* Over a link with data-cursor-label (e.g. the next case study): a filled badge with a word in it. */
+.cursor[data-label] { width: 88px; height: 88px; margin: -44px 0 0 -44px; background-color: var(--c-ink); }
+.cursor[data-label]::after {
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  color: var(--c-bg);
+  font: 700 var(--fs-tag) / 1.1 var(--f-button);
+  letter-spacing: .06em;
+  text-align: center;
+}
 
 /* ==========================================================================
    Responsive
    ========================================================================== */
 
 @media (max-width: 900px) {
+  .playground[data-layout="tidy"] .desk__pile { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .postcard { grid-template-columns: 1fr; transform: none; }
   .postcard::before { display: none; }   /* no fold once the halves stack */
   .site-header {
@@ -1669,6 +1850,8 @@ body::before {
 }
 
 @media (max-width: 700px) {
+  .note-card__intro, .note-card__pair { grid-template-columns: 1fr; }
+  .playground[data-layout="tidy"] .desk__pile { grid-template-columns: 1fr; }
   .playground__actions { display: none; }   /* phones always get the tidy grid */
   .label-row { flex-wrap: wrap; row-gap: 14px; }
   .case-grid--2, .case-grid--3, .case__facts--grid, .decisions { grid-template-columns: 1fr; }
