@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Merlin Bird Buddies — Cailin Kuhn</title>
+  <meta name="description" content="Cailin Kuhn Portfolio.">
+  <script>
+    // Apply saved/system theme before paint to avoid a flash.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-dark.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-light.svg" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header wrap">
+    <a class="site-header__logo" href="index.html" aria-label="Cailin Kuhn — home">
+      <img class="logo logo--light" src="assets/icons/logo-header-dark.svg" width="98" height="99" alt="">
+      <img class="logo logo--dark" src="assets/icons/logo-header-light.svg" width="98" height="99" alt="">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="work.html" aria-current="page">MY WORK</a>
+      <a href="about.html">ABOUT</a>
+      <a href="playground.html">PLAYGROUND</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-label-light="LAND" data-label-dark="SEA">
+      <span class="theme-toggle__icon" aria-hidden="true"><span class="icon icon--sun"></span><span class="icon icon--moon"></span></span>
+      <span class="theme-toggle__label">LAND</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- Case study: Merlin Bird Buddies -->
+    <article class="case section--page-top wrap" aria-labelledby="case-title" data-case-view="full">
+      <div class="label-row">
+        <p class="label"><a href="work.html">02.<span class="light-only">Field_Notes</span><span class="dark-only">Sample_Log</span></a></p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end">NO. 93 · <span class="light-only">sighted</span><span class="dark-only">logged</span> 2025</p>
+      </div>
+      <h1 class="display display--section display--tight" id="case-title">MERLIN BIRD BUDDIES</h1>
+
+      <figure class="case__hero">
+        <img src="assets/images/bird-buddies/merlin-bird-buddies.jpg" width="1600" height="1066" alt="A hand holding a phone open to Bird Buddies: an illustrated yellow warbler as the bird of the day above the Identify a Bird buttons" data-zoom>
+      </figure>
+
+      <!-- Full / condensed switch (js/case.js). Sections marked data-only show in one view. -->
+      <div class="case-view">
+        <p class="case-view__hint"><span data-only="full">The whole story: research, iterations and all.</span><span data-only="condensed">The short version, in five stops.</span></p>
+        <div class="case-view__switch" role="group" aria-label="Case study length">
+          <button type="button" data-view="full" aria-pressed="true">FULL STUDY</button>
+          <button type="button" data-view="condensed" aria-pressed="false">CONDENSED</button>
+        </div>
+      </div>
+
+      <!-- Overview (both views) -->
+      <section class="case-section" aria-labelledby="cs-overview">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-overview">OVERVIEW</h2>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">Merlin Bird Buddies reimagines the Merlin Bird ID app for kids ages 8 to 13, putting approachability and learning first. A softer color palette, illustrated moments and a gentler interface turn a precise tool for birders into a welcoming place to start.</p>
+          <dl class="case__facts case__facts--grid">
+            <div><dt>Project</dt><dd>Merlin Bird Buddies</dd></div>
+            <div><dt>Type</dt><dd>UI / UX / Mobile App Redesign</dd></div>
+            <div><dt>Role</dt><dd>Solo: Research, UX/UI, Illustration</dd></div>
+            <div><dt>Tools</dt><dd>Figma, Procreate</dd></div>
+            <div><dt>Timeline</dt><dd>2-week class project, then extended on my own</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- The Challenge (full) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-challenge">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-challenge">THE CHALLENGE</h2>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">The brief: reskin an existing app for a new audience. I chose Merlin Bird ID, the Cornell Lab of Ornithology’s bird identification app. I love it, but it’s built for adult birders, and it feels sterile and a little unwelcoming. I kept thinking about how much my younger cousin would enjoy it if it felt made for kids, so I set out to make it fun and educational for them.</p>
+        </div>
+      </section>
+
+      <!-- Approach (condensed) -->
+      <section class="case-section" data-only="condensed" aria-labelledby="cs-approach">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-approach">APPROACH</h2>
+        </header>
+        <div class="case-section__body">
+          <dl class="case__facts case__facts--stack">
+            <div><dt>Problem</dt><dd>Merlin Bird ID is a great tool, but it’s built for adult birders: sterile, precise and unwelcoming to kids.</dd></div>
+            <div><dt>Audience</dt><dd>Kids ages 8 to 13, like Maya, 9, who loves exploring her backyard but gets overwhelmed by busy screens.</dd></div>
+            <div><dt>Design decisions</dt><dd>
+              <ol class="decisions decisions--stack" role="list">
+                <li class="decision"><span class="decision__num" aria-hidden="true">01</span><h3 class="decision__title">Calm, not loud</h3><p class="decision__text">A soft palette of cream, muted purple and sage keeps the app gentle, with one bright red saved for the record button.</p></li>
+                <li class="decision"><span class="decision__num" aria-hidden="true">02</span><h3 class="decision__title">An illustrated welcome</h3><p class="decision__text">The bird of the day is my own illustration, set in a landscape, instead of a photo that fills the screen.</p></li>
+                <li class="decision"><span class="decision__num" aria-hidden="true">03</span><h3 class="decision__title">Words a kid would use</h3><p class="decision__text">“Life List” became “Flight Log,” the identify buttons got short labels, and the spectrogram became a simple sound wave.</p></li>
+                <li class="decision"><span class="decision__num" aria-hidden="true">04</span><h3 class="decision__title">Real birds stay real</h3><p class="decision__text">Bird photos stay photos, so what kids learn in the app matches what they see outside.</p></li>
+              </ol>
+            </dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- The original app (full): Merlin's screens with pins, one tab per screen. The redesign waits for Before & After. -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-audit">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-audit">THE ORIGINAL APP</h2>
+          <p class="case-section__q">I started by marking up the current app: what to keep, and what to rethink for kids. Tap a pin to read the note.</p>
+        </header>
+        <div class="case-section__body">
+          <div class="versions__tabs" role="tablist" aria-label="Merlin screens">
+            <button type="button" role="tab" id="tab-identify" aria-controls="panel-identify" aria-selected="true">IDENTIFY</button>
+            <button type="button" role="tab" id="tab-lifelist" aria-controls="panel-lifelist" aria-selected="false" tabindex="-1">LIFE LIST</button>
+            <button type="button" role="tab" id="tab-sound" aria-controls="panel-sound" aria-selected="false" tabindex="-1">SOUND ID</button>
+          </div>
+
+          <div class="versions__panel" role="tabpanel" id="panel-identify" aria-labelledby="tab-identify">
+            <div class="annotated annotated--phone">
+              <figure class="annotated__screen">
+                <img src="assets/images/bird-buddies/merlin-original-landing.png" width="393" height="802" alt="Merlin’s original Identify screen: the Merlin logo, a large photo of a blackpoll warbler as bird of the day, and Step by Step, Sound and Photo buttons" loading="lazy" data-zoom>
+                <button type="button" class="pin" style="--x: 16%; --y: 7%" data-note="1" aria-label="Note 1: Awkward logo">1</button>
+                <button type="button" class="pin" style="--x: 70%; --y: 30%" data-note="2" aria-label="Note 2: Photo takes over">2</button>
+                <button type="button" class="pin" style="--x: 31%; --y: 63%" data-note="3" aria-label="Note 3: Segmented buttons">3</button>
+                <button type="button" class="pin" style="--x: 50%; --y: 93%" data-note="4" aria-label="Note 4: Serious icons">4</button>
+              </figure>
+              <ol class="annotated__notes" role="list">
+                <li class="note" data-note="1"><button type="button" class="note__btn"><span class="note__num">1</span><span class="note__title">Awkward logo</span></button><p class="note__text">Blank white space, with the logo placed awkwardly at the very top.</p></li>
+                <li class="note" data-note="2"><button type="button" class="note__btn"><span class="note__num">2</span><span class="note__title">Photo takes over</span></button><p class="note__text">The bird of the day photo fills most of the screen. Could it be smaller, illustrated, maybe even interactive?</p></li>
+                <li class="note" data-note="3"><button type="button" class="note__btn"><span class="note__num">3</span><span class="note__title">Segmented buttons</span></button><p class="note__text">The large buttons work, but the composition feels disjointed and segmented.</p></li>
+                <li class="note" data-note="4"><button type="button" class="note__btn"><span class="note__num">4</span><span class="note__title">Serious icons</span></button><p class="note__text">The navigation icons could be more fun and playful for a younger audience.</p></li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="versions__panel" role="tabpanel" id="panel-lifelist" aria-labelledby="tab-lifelist" hidden>
+            <div class="annotated annotated--phone">
+              <figure class="annotated__screen">
+                <img src="assets/images/bird-buddies/merlin-original-lifelist.png" width="393" height="802" alt="Merlin’s original Life List: a text list of 42 species with small photos, places and dates" loading="lazy" data-zoom>
+                <button type="button" class="pin" style="--x: 30%; --y: 9%" data-note="5" aria-label="Note 5: A dry title">5</button>
+                <button type="button" class="pin" style="--x: 83%; --y: 4%" data-note="6" aria-label="Note 6: Too many controls">6</button>
+                <button type="button" class="pin" style="--x: 60%; --y: 34%" data-note="7" aria-label="Note 7: Crowded rows">7</button>
+              </figure>
+              <ol class="annotated__notes" role="list">
+                <li class="note" data-note="5"><button type="button" class="note__btn"><span class="note__num">5</span><span class="note__title">A dry title</span></button><p class="note__text">“Life List” is a bit boring, and could be confusing for kids. Ideas: My Birds, My Sightings, Bird Book, Flight Log, Pecking Order.</p></li>
+                <li class="note" data-note="6"><button type="button" class="note__btn"><span class="note__num">6</span><span class="note__title">Too many controls</span></button><p class="note__text">The toolbar could be simpler. Does it need the info button?</p></li>
+                <li class="note" data-note="7"><button type="button" class="note__btn"><span class="note__num">7</span><span class="note__title">Crowded rows</span></button><p class="note__text">The information gets dense in that little space: name, place and date are all packed into each row.</p></li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="versions__panel" role="tabpanel" id="panel-sound" aria-labelledby="tab-sound" hidden>
+            <div class="annotated annotated--phone">
+              <figure class="annotated__screen">
+                <img src="assets/images/bird-buddies/merlin-original-audio.png" width="393" height="802" alt="Merlin’s original Sound ID screen: a gray spectrogram above a list of suggested birds, with a recording bar at the bottom" loading="lazy" data-zoom>
+                <button type="button" class="pin" style="--x: 50%; --y: 17%" data-note="8" aria-label="Note 8: Too scientific">8</button>
+                <button type="button" class="pin" style="--x: 12%; --y: 43%" data-note="9" aria-label="Note 9: A good balance">9</button>
+                <button type="button" class="pin" style="--x: 17%; --y: 84%" data-note="10" aria-label="Note 10: Stacked buttons">10</button>
+              </figure>
+              <ol class="annotated__notes" role="list">
+                <li class="note" data-note="8"><button type="button" class="note__btn"><span class="note__num">8</span><span class="note__title">Too scientific</span></button><p class="note__text">The spectrogram is precise but very scientific, and a little dull for kids. It needs color and simplicity.</p></li>
+                <li class="note" data-note="9"><button type="button" class="note__btn"><span class="note__num">9</span><span class="note__title">A good balance</span></button><p class="note__text">The suggestion list works really well, with a good balance between text and image. Worth keeping.</p></li>
+                <li class="note" data-note="10"><button type="button" class="note__btn"><span class="note__num">10</span><span class="note__title">Stacked buttons</span></button><p class="note__text">The recording bar sits right on top of the navigation: two rows of buttons stacked together. Could that transition be easier?</p></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research (full) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-research">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-research">RESEARCH</h2>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">I explored two directions, each written for a different kid. Storybook Style was bright and game-like, for Henry, 6. Tranquil Learning was calm and artistic, for Maya, 9. I moved forward with Maya. Identifying birds by sound and photo suits slightly older kids, and a quieter app felt truer to birding and kinder to kids who get overwhelmed easily.</p>
+          <figure class="case-figure">
+            <div class="case-grid case-grid--2">
+              <img src="assets/images/bird-buddies/bb-moodboard-storybook.jpg" width="1920" height="1080" alt="Storybook Style moodboard: bright, game-like kids’ apps. Keywords: approachable, friendly, educational, engaging, fun" loading="lazy" data-zoom data-zoom-group="moodboards">
+              <img src="assets/images/bird-buddies/bb-moodboard-tranquil.jpg" width="1920" height="1080" alt="Tranquil Learning moodboard: calm green apps and soft landscape illustrations. Keywords: relaxing, educational, peaceful, artistic, engaging" loading="lazy" data-zoom data-zoom-group="moodboards">
+            </div>
+            <figcaption class="case-figure__caption">Two moodboards of reference work: Storybook Style (left) and Tranquil Learning (right), the direction I chose.</figcaption>
+          </figure>
+          <div class="case-grid">
+            <img src="assets/images/bird-buddies/MyaPersona.png" width="2400" height="1350" alt="User persona: Maya Harris, 9, in fourth grade. A gentle, curious child who explores her backyard and nearby parks with her parents. Frustrations: things that are too colorful or busy, complicated instructions, losing confidence when she doesn’t get it right. Goals: recognize bird sounds, learn quietly at her own pace, share discoveries with her parents." loading="lazy" data-zoom data-zoom-group="research">
+            <img src="assets/images/bird-buddies/MyaJourney.png" width="2400" height="1350" alt="Maya’s user journey in six stages, Curiosity, Invested, Engaged, Experimenting, Excited and Convinced, from discovering the app with a parent to birdwatching becoming a favorite hobby, with marketing and design opportunities at each stage." loading="lazy" data-zoom data-zoom-group="research">
+          </div>
+        </div>
+      </section>
+
+      <!-- Design decisions (full) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-decisions">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-decisions">DESIGN DECISIONS</h2>
+        </header>
+        <div class="case-section__body">
+          <ol class="decisions" role="list">
+            <li class="decision"><span class="decision__num" aria-hidden="true">01</span><h3 class="decision__title">Calm, not loud</h3><p class="decision__text">Maya gets overwhelmed by things that are too colorful or busy. A soft palette of cream, muted purple and sage keeps the app gentle, with one bright red saved for the record button.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">02</span><h3 class="decision__title">An illustrated welcome</h3><p class="decision__text">Instead of a photo filling the screen, the bird of the day is my own illustration, drawn in Procreate and set in a landscape. It makes the first screen feel like a picture book.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">03</span><h3 class="decision__title">Words a kid would use</h3><p class="decision__text">“Life List” became “Flight Log,” the identify buttons got short labels (Steps, Sound, Image), and the spectrogram became a simple sound wave.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">04</span><h3 class="decision__title">Real birds stay real</h3><p class="decision__text">Bird photos stay photos, so what kids learn matches what they see outside. Explore turns it into a challenge: can you find these birds nearby?</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Iteration (full) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-iteration">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-iteration">ITERATION</h2>
+        </header>
+        <div class="case-section__body">
+          <figure class="case-figure">
+            <div class="case-grid case-grid--2">
+              <img src="assets/images/bird-buddies/bb-sketch1.png" width="550" height="413" alt="Sketchbook page: a mind map of ideas for a kids’ version of Merlin, with rough landing page and audio screen layouts" loading="lazy" data-zoom data-zoom-group="iteration">
+              <img src="assets/images/bird-buddies/bb-sketch2.png" width="550" height="408" style="aspect-ratio: 550 / 413; object-fit: cover" alt="Sketchbook page: landing page layout with an illustrated bird, notes on icons, and collection grid layouts" loading="lazy" data-zoom data-zoom-group="iteration">
+            </div>
+            <figcaption class="case-figure__caption">Sketches: mapping what a kids’ version needs, then rough layouts for the landing page, sound ID and a collection grid.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <div class="case-grid case-grid--4">
+              <img src="assets/images/bird-buddies/bb-early-landing.png" width="393" height="852" alt="First pass at Identify: an illustrated osprey catching a fish as the bird of the day, with gray placeholder navigation" loading="lazy" data-zoom data-zoom-group="iteration">
+              <img src="assets/images/bird-buddies/bb-early-flightlog-list.png" width="393" height="852" alt="First pass at the Flight Log as a list of birds with places and dates, and gray photo placeholders" loading="lazy" data-zoom data-zoom-group="iteration">
+              <img src="assets/images/bird-buddies/bb-early-flightlog-grid.png" width="393" height="852" alt="First pass at the Flight Log as a grid of gray photo placeholders" loading="lazy" data-zoom data-zoom-group="iteration">
+              <img src="assets/images/bird-buddies/bb-early-audio.png" width="393" height="852" alt="First pass at Sound ID: a gray block that reads Audio Waves Here above the best suggestions list" loading="lazy" data-zoom data-zoom-group="iteration">
+            </div>
+            <figcaption class="case-figure__caption">First digital pass: an illustrated osprey as bird of the day, the Flight Log tried as a list and as a grid, and a placeholder for the sound wave. The grid won, and the osprey later became a yellow warbler.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Final UI (both views) -->
+      <section class="case-section case-section--wide" aria-labelledby="cs-final">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-final"><span data-only="full">FINAL UI</span><span data-only="condensed">FINAL</span></h2>
+        </header>
+        <div class="case-section__body">
+          <img class="case__wide-img" src="assets/images/bird-buddies/iPhone_Three.png" width="2400" height="1632" alt="Three phones showing Bird Buddies: the Sound screen with its sound wave, the Identify screen with the yellow warbler, and the Flight Log grid" loading="lazy" data-zoom>
+          <div class="case-grid case-grid--7">
+            <img src="assets/images/bird-buddies/bb-screen-landing.png" width="786" height="1704" alt="Identify: the illustrated yellow warbler as bird of the day, with Steps, Sound and Image buttons" loading="lazy" data-zoom data-zoom-group="screens">
+            <img src="assets/images/bird-buddies/bb-screen-audio.png" width="786" height="1704" alt="Sound: a sound wave over a landscape, with best suggestions and a recording timer" loading="lazy" data-zoom data-zoom-group="screens">
+            <img src="assets/images/bird-buddies/bb-screen-flightlog.png" width="786" height="1704" alt="Flight Log: a grid of the 42 birds logged" loading="lazy" data-zoom data-zoom-group="screens">
+            <img src="assets/images/bird-buddies/bb-screen-bluejay.png" width="786" height="1704" alt="Blue Jay card: what it looks like and where to find it, written for kids" loading="lazy" data-zoom data-zoom-group="screens">
+            <img src="assets/images/bird-buddies/bb-screen-towhee.png" width="786" height="1704" alt="Eastern Towhee card from the Flight Log" loading="lazy" data-zoom data-zoom-group="screens">
+            <img src="assets/images/bird-buddies/bb-screen-catbird.png" width="786" height="1704" alt="Grey Catbird card from the Flight Log" loading="lazy" data-zoom data-zoom-group="screens">
+            <img src="assets/images/bird-buddies/bb-screen-explore.png" width="786" height="1704" alt="Explore Birds: can you find these birds nearby? A grid of birds likely to be seen today in Rochester, NY" loading="lazy" data-zoom data-zoom-group="screens">
+          </div>
+          <img class="case__wide-img" src="assets/images/bird-buddies/iPhone_Grid.png" width="2400" height="1600" alt="A grid of tilted phones showing many Bird Buddies screens: Explore, Flight Log, bird cards, range maps and Sound ID" loading="lazy" data-zoom>
+        </div>
+      </section>
+
+      <!-- Before & after (both views): Merlin beside Bird Buddies, the payoff for the audit. -->
+      <section class="case-section case-section--wide" aria-labelledby="cs-before-after">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-before-after">BEFORE &amp; AFTER</h2>
+        </header>
+        <div class="case-section__body">
+          <div class="compare-grid">
+            <figure class="compare">
+              <h3 class="compare__title">Identify</h3>
+              <div class="compare__pair">
+                <div class="compare__shot">
+                  <img src="assets/images/bird-buddies/merlin-original-landing.png" width="393" height="802" alt="Before: Merlin’s Identify screen with a large photo of a blackpoll warbler" loading="lazy" data-zoom data-zoom-group="before-after">
+                  <span class="compare__label">Merlin</span>
+                </div>
+                <div class="compare__shot">
+                  <img src="assets/images/bird-buddies/bb-screen-landing.png" width="786" height="1704" alt="After: the Bird Buddies Identify screen with an illustrated yellow warbler in a landscape" loading="lazy" data-zoom data-zoom-group="before-after">
+                  <span class="compare__label">Bird Buddies</span>
+                </div>
+              </div>
+              <figcaption class="compare__text">The photo became my illustration of the bird of the day, set in a landscape. The buttons got short labels and softer shapes, and the navigation got friendlier icons.</figcaption>
+            </figure>
+            <figure class="compare">
+              <h3 class="compare__title">Life List → Flight Log</h3>
+              <div class="compare__pair">
+                <div class="compare__shot">
+                  <img src="assets/images/bird-buddies/merlin-original-lifelist.png" width="393" height="802" alt="Before: Merlin’s Life List, a text list of species" loading="lazy" data-zoom data-zoom-group="before-after">
+                  <span class="compare__label">Merlin</span>
+                </div>
+                <div class="compare__shot">
+                  <img src="assets/images/bird-buddies/bb-screen-flightlog.png" width="786" height="1704" alt="After: the Bird Buddies Flight Log, a grid of bird photos" loading="lazy" data-zoom data-zoom-group="before-after">
+                  <span class="compare__label">Bird Buddies</span>
+                </div>
+              </div>
+              <figcaption class="compare__text">“Life List” became the Flight Log, and the crowded rows became a photo grid with just each bird and its name, so it feels like a collection. The toolbar kept just sort and search.</figcaption>
+            </figure>
+            <figure class="compare">
+              <h3 class="compare__title">Sound ID</h3>
+              <div class="compare__pair">
+                <div class="compare__shot">
+                  <img src="assets/images/bird-buddies/merlin-original-audio.png" width="393" height="802" alt="Before: Merlin’s Sound ID screen with a gray spectrogram" loading="lazy" data-zoom data-zoom-group="before-after">
+                  <span class="compare__label">Merlin</span>
+                </div>
+                <div class="compare__shot">
+                  <img src="assets/images/bird-buddies/bb-screen-audio.png" width="786" height="1704" alt="After: the Bird Buddies Sound screen with a blue sound wave over a landscape" loading="lazy" data-zoom data-zoom-group="before-after">
+                  <span class="compare__label">Bird Buddies</span>
+                </div>
+              </div>
+              <figcaption class="compare__text">The spectrogram became a colorful sound wave over a landscape. The suggestion list kept its structure, and the recording bar now floats above the navigation.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- First reactions: hidden for now; remove the comment markers to bring it back.
+      <section class="case-section" data-only="full" aria-labelledby="cs-reactions">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-reactions">FIRST REACTIONS</h2>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">I showed the screens to two of my cousins, ages 7 and 13. Both were drawn to the illustration and the softer colors right away, a good sign that the app feels welcoming across the age range. They could only tap between screens, so watching kids complete real tasks, like identifying a bird by sound, is the next thing I want to test.</p>
+        </div>
+      </section>
+      -->
+
+      <!-- What's next (full) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-next">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-next">WHAT’S NEXT</h2>
+        </header>
+        <div class="case-section__body">
+          <ol class="decisions" role="list">
+            <li class="decision"><span class="decision__num" aria-hidden="true">01</span><h3 class="decision__title">Badges to collect</h3><p class="decision__text">Unlock badges for spotting birds from different regions, seasons or families, like warblers or woodpeckers.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">02</span><h3 class="decision__title">Mystery bird of the day</h3><p class="decision__text">A daily quiz with a silhouette, call or close-up detail, multiple choice answers and playful hints.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">03</span><h3 class="decision__title">Make it theirs</h3><p class="decision__text">Let kids pick favorite birds and add their own notes and drawings to the Flight Log.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">04</span><h3 class="decision__title">A working prototype</h3><p class="decision__text">An interactive prototype, to test the flow with kids and show the transitions between screens.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Reflection (both views) -->
+      <section class="case-section" aria-labelledby="cs-reflection">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-reflection">REFLECTION</h2>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">I’ve worked several jobs in childcare and have several younger cousins, so designing for kids felt natural, and it was so much fun to design for an audience that really appreciates whimsy. The project also pulled me into a style I don’t usually work in, so I experimented a lot with how to convey my ideas. What helped most was how much brainstorming I did before production, which is unusual for me, and it taught me how valuable that early definition is. I kept going after the two-week brief because I wanted Bird Buddies to feel like a real app, not just two screens.</p>
+        </div>
+      </section>
+
+      <!-- Next case study: a full-screen panel, like the old Framer site. The title fades up on scroll;
+           on hover the cover rises from below and the cursor reads TAKE FLIGHT (land) or DIVE IN (sea) (js/case.js, js/cursor.js). -->
+      <nav class="next-case" aria-label="Next case study">
+        <a class="next-case__link" href="blue-apron.html" data-cursor-label="TAKE FLIGHT" data-cursor-label-dark="DIVE IN">
+          <span class="next-case__label"><span class="light-only">Next field note</span><span class="dark-only">Next sample</span></span>
+          <span class="next-case__title">BLUE APRON</span>
+          <span class="next-case__meta">Branding / Creative Direction</span>
+          <span class="next-case__media"><img src="assets/images/work/blue-apron.jpg" width="1800" height="1200" alt="Blue Apron food truck with a checkered blue-and-cream wrap" loading="lazy"></span>
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="site-footer__inner wrap">
+      <div class="site-footer__brand">
+        <a class="site-footer__home" href="index.html" aria-label="Cailin Kuhn — home">
+          <img class="site-footer__logo logo--light" src="assets/icons/logo-footer-light.svg" width="140" height="144" alt="">
+          <img class="site-footer__logo logo--dark" src="assets/icons/logo-footer-dark.svg" width="140" height="144" alt="">
+        </a>
+        <p class="site-footer__tagline">LET<span class="apos">’</span>S GO EXPLORING</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="footer-menu">
+        <h2 class="footer-col__title" id="footer-menu">MENU</h2>
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-col__title"><span class="light-only">FIND ME IN THE FIELD</span><span class="dark-only">SEND A SIGNAL</span></h2>
+        <ul role="list">
+          <li><a href="mailto:cailinmkuhn@gmail.com">cailinmkuhn@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/contours.js"></script>
+  <script src="js/case.js"></script>
+  <script src="js/lightbox.js"></script>
+</body>
+</html>

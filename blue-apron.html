@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blue Apron — Cailin Kuhn</title>
+  <meta name="description" content="Cailin Kuhn Portfolio.">
+  <script>
+    // Apply saved/system theme before paint to avoid a flash.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-dark.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-light.svg" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header wrap">
+    <a class="site-header__logo" href="index.html" aria-label="Cailin Kuhn — home">
+      <img class="logo logo--light" src="assets/icons/logo-header-dark.svg" width="98" height="99" alt="">
+      <img class="logo logo--dark" src="assets/icons/logo-header-light.svg" width="98" height="99" alt="">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="work.html" aria-current="page">MY WORK</a>
+      <a href="about.html">ABOUT</a>
+      <a href="playground.html">PLAYGROUND</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle color theme" data-label-light="LAND" data-label-dark="SEA">
+      <span class="theme-toggle__icon" aria-hidden="true"><span class="icon icon--sun"></span><span class="icon icon--moon"></span></span>
+      <span class="theme-toggle__label">LAND</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- Case study: Blue Apron campus campaign (research-led group project; branding and creative direction by Cailin) -->
+    <article class="case case--gallery section--page-top wrap" aria-labelledby="case-title" data-case-view="full">
+      <div class="label-row">
+        <p class="label"><a href="work.html">02.<span class="light-only">Field_Notes</span><span class="dark-only">Sample_Log</span></a></p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="label label--end">NO. 091 · <span class="light-only">sighted</span><span class="dark-only">logged</span> 2025</p>
+      </div>
+      <h1 class="display display--section display--tight" id="case-title">BLUE APRON</h1>
+
+      <figure class="case__hero">
+        <img src="assets/images/blue-apron/FoodTruck.jpg" width="2400" height="1600" alt="Navy Blue Apron food truck with a cream checkerboard stripe, the chef logo on the side and a menu board out front" data-zoom>
+      </figure>
+
+      <!-- Full / condensed switch (js/case.js). Sections marked data-only show in one view. -->
+      <div class="case-view">
+        <p class="case-view__hint"><span data-only="full">The whole story: research, idea, decisions and all.</span><span data-only="condensed">The short version, focused on the finished work.</span></p>
+        <div class="case-view__switch" role="group" aria-label="Case study length">
+          <button type="button" data-view="full" aria-pressed="true">FULL STUDY</button>
+          <button type="button" data-view="condensed" aria-pressed="false">CONDENSED</button>
+        </div>
+      </div>
+
+      <!-- Overview (both views) -->
+      <section class="case-section" aria-labelledby="cs-overview">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-overview">OVERVIEW</h2>
+          <p class="case-section__q" data-only="condensed">What is it?</p>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">A conceptual advertising campaign for Blue Apron, developed in an advertising course. Our team’s research showed that 18 to 24 year olds make up just 1% of meal kit customers, so we proposed a food truck pop-up that travels from campus to campus. I led the branding and creative direction, shaping the campaign’s visual identity and its experiential advertising.</p>
+          <dl class="case__facts case__facts--grid">
+            <div><dt>Project</dt><dd>Blue Apron campus campaign (conceptual)</dd></div>
+            <div><dt>Type</dt><dd>Branding / Advertising Campaign / Experiential</dd></div>
+            <div><dt>Role</dt><dd>Branding &amp; Creative Direction, all campaign visuals</dd></div>
+            <div><dt>Team</dt><dd>Elize Cardona, Kaija Hjelm, Suprina Kabadkar, Cecilia Wong</dd></div>
+            <div><dt>Tools</dt><dd>Photoshop, Illustrator</dd></div>
+            <div><dt>Context</dt><dd>Advertising course, group project</dd></div>
+          </dl>
+          <div class="case__links">
+            <a class="text-link" href="assets/images/blue-apron/SituationalAnalysis.pdf" target="_blank" rel="noopener">
+              <span class="text-link__label">Read the situational analysis</span>
+              <span class="icon icon--arrow" aria-hidden="true"></span>
+            </a>
+            <a class="text-link" href="assets/images/blue-apron/CampaignReport.pdf" target="_blank" rel="noopener">
+              <span class="text-link__label">Read the campaign plan</span>
+              <span class="icon icon--arrow" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Research (full) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-research">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-research">THE RESEARCH</h2>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">The project was research first. Before anything was designed, our team wrote a full situational analysis covering Blue Apron’s brand, pricing, competitors, customers and a SWOT. Three findings shaped everything that came after.</p>
+          <ol class="decisions decisions--3" role="list">
+            <li class="decision"><span class="decision__num" aria-hidden="true">1%</span><h3 class="decision__title">An audience no one was talking to</h3><p class="decision__text">18 to 24 year olds make up just 1% of meal kit spending. Most advertising is aimed at busy parents and professionals.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">85%</span><h3 class="decision__title">Customers don’t stay</h3><p class="decision__text">Roughly 85% of one group of new Blue Apron customers had left within a year. Winning people over needed more than a discount code.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">2025</span><h3 class="decision__title">A brand opening up</h3><p class="decision__text">Blue Apron had just dropped its subscription requirement, which suits students who want flexibility, quick meals and things worth sharing with friends.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- The Idea (full) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-idea">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-idea">THE IDEA</h2>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">Blue Apron has no storefronts, so students never get to taste it before paying. We proposed a branded food truck that visits campuses twice a week through the first eight weeks of the fall semester, serving Blue Apron meals with student discounts on the spot. A campus ambassador program and social media carry it between visits, all under one message: <strong>“Dinner doesn’t have to be hard.”</strong></p>
+          <p class="case__description">The brief only asked for a written plan, but our team was full of designers, so we decided to show the campaign as well as describe it. I took the lead on how it would look.</p>
+        </div>
+      </section>
+
+      <!-- Approach (condensed): the research, idea and decisions in one stop -->
+      <section class="case-section" data-only="condensed" aria-labelledby="cs-approach">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-approach">APPROACH</h2>
+          <p class="case-section__q">What did we find, and what design decisions did I make?</p>
+        </header>
+        <div class="case-section__body">
+          <dl class="case__facts case__facts--stack">
+            <div><dt>The research</dt><dd>18 to 24 year olds are just 1% of meal kit customers, and Blue Apron had just dropped its subscription requirement.</dd></div>
+            <div><dt>The idea</dt><dd>A food truck that tours college campuses, so students can taste the meals first, backed by an ambassador program and social media.</dd></div>
+            <div><dt>Design decisions</dt><dd>
+              <ol class="decisions decisions--stack" role="list">
+                <li class="decision"><span class="decision__num" aria-hidden="true">01</span><h3 class="decision__title">A friendlier Blue Apron</h3><p class="decision__text">A cheerful chef mascot and rounded type make the brand feel made for students.</p></li>
+                <li class="decision"><span class="decision__num" aria-hidden="true">02</span><h3 class="decision__title">Diner checkerboard</h3><p class="decision__text">A checkered band ties the truck, menu and posters to food truck and diner culture.</p></li>
+                <li class="decision"><span class="decision__num" aria-hidden="true">03</span><h3 class="decision__title">Blue, warmed up</h3><p class="decision__text">Blue Apron’s navy stays, with orange and cream added for energy.</p></li>
+              </ol>
+            </dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Identity: three lockups (land shows the blue versions, sea the cream ones) + style guide -->
+      <section class="case-section case-section--wide" aria-labelledby="cs-identity">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-identity">IDENTITY</h2>
+          <p class="case-section__q">A primary horizontal lockup, a vertical lockup and a round emblem, each in navy and cream.</p>
+        </header>
+        <div class="case-section__body">
+          <div class="case-grid case-grid--3">
+            <div class="lockup">
+              <img class="light-only" src="assets/images/blue-apron/BA_HorizontalLogo_Blue.png" width="2000" height="633" alt="Primary horizontal lockup: the chef mascot beside “Blue Apron” and the line “Dinner doesn’t have to be hard”" loading="lazy" data-zoom>
+              <img class="dark-only" src="assets/images/blue-apron/BA_HorizontalLogo_White.png" width="2000" height="633" alt="Primary horizontal lockup: the chef mascot beside “Blue Apron” and the line “Dinner doesn’t have to be hard”" loading="lazy" data-zoom>
+            </div>
+            <div class="lockup">
+              <img class="light-only" src="assets/images/blue-apron/BA_VerticalLogo_Blue.png" width="1400" height="741" alt="Vertical lockup: the chef mascot beside a stacked “Blue Apron” and tagline" loading="lazy" data-zoom>
+              <img class="dark-only" src="assets/images/blue-apron/BA_VerticalLogo_White.png" width="1400" height="741" alt="Vertical lockup: the chef mascot beside a stacked “Blue Apron” and tagline" loading="lazy" data-zoom>
+            </div>
+            <div class="lockup">
+              <img class="light-only" src="assets/images/blue-apron/BA_EmblemLogo_Blue.png" width="1000" height="1000" alt="Round emblem: the chef mascot circled by “Dinner doesn’t have to be hard”" loading="lazy" data-zoom>
+              <img class="dark-only" src="assets/images/blue-apron/BA_EmblemLogo_White.png" width="1000" height="1000" alt="Round emblem: the chef mascot circled by “Dinner doesn’t have to be hard”" loading="lazy" data-zoom>
+            </div>
+          </div>
+          <figure class="case-figure">
+            <img src="assets/images/blue-apron/styleGuide.jpg" width="3000" height="2000" alt="Campaign style guide: the three lockups, Cubano and Avenir type specimens, and a palette of navy, periwinkle, cream and orange" loading="lazy" data-zoom>
+            <figcaption class="case-figure__caption">The style guide I put together so the whole team could design in the same voice. Chef illustration by Suprina Kabadkar; lockups, type, colour and everything else by me.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Campaign: posters and menu. data-zoom-group lets the enlarged view step through them. -->
+      <section class="case-section case-section--wide" aria-labelledby="cs-campaign">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-campaign">ON CAMPUS</h2>
+          <p class="case-section__q">Posters announce the truck’s grand opening and recruit student ambassadors; the fold-out menu travels with the truck.</p>
+        </header>
+        <div class="case-section__body">
+          <div class="case-grid case-grid--2">
+            <img src="assets/images/blue-apron/Posters.jpg" width="2400" height="1800" alt="Both posters mounted in outdoor display cases in front of a brick wall and greenery" loading="lazy" data-zoom data-zoom-group="campaign">
+            <img src="assets/images/blue-apron/Menu.jpg" width="2400" height="1800" alt="Tall fold-out menu with a checkerboard border, listing chipotle chicken bites, Indian chana paneer and peanut udon stir-fry" loading="lazy" data-zoom data-zoom-group="campaign">
+          </div>
+          <div class="case-grid case-grid--2 case-grid--narrow">
+            <img src="assets/images/blue-apron/Poster_GrandOpening.jpg" width="1400" height="1980" alt="Grand opening poster: orange headline over periwinkle vegetable silhouettes on navy, with the date, time and opening-day specials" loading="lazy" data-zoom data-zoom-group="campaign">
+            <img src="assets/images/blue-apron/Poster_AmbassadorProgram.jpg" width="1400" height="1980" alt="Ambassador poster: “Become a Blue Apron Ambassador” in orange over periwinkle vegetable silhouettes on navy, with session details" loading="lazy" data-zoom data-zoom-group="campaign">
+          </div>
+        </div>
+      </section>
+
+      <!-- Design decisions (full; condensed versions live in Approach) -->
+      <section class="case-section" data-only="full" aria-labelledby="cs-decisions">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-decisions">DESIGN DECISIONS</h2>
+        </header>
+        <div class="case-section__body">
+          <ol class="decisions" role="list">
+            <li class="decision"><span class="decision__num" aria-hidden="true">01</span><h3 class="decision__title">A friendlier Blue Apron</h3><p class="decision__text">Blue Apron’s real branding is clean and grown-up. For students it needed more personality, so I built the identity around Suprina’s cheerful chef mascot and paired it with Cubano, a chunky rounded display face.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">02</span><h3 class="decision__title">Diner checkerboard</h3><p class="decision__text">A navy and cream checkered band runs along the truck, the menu and the posters. It nods to diners and food truck culture and makes every piece recognisable from across a quad.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">03</span><h3 class="decision__title">Blue, warmed up</h3><p class="decision__text">I kept Blue Apron’s navy so the brand stays recognisable, then added orange, cream and a soft periwinkle to make it feel warmer and younger.</p></li>
+            <li class="decision"><span class="decision__num" aria-hidden="true">04</span><h3 class="decision__title">Fresh ingredients, front and centre</h3><p class="decision__text">Oversized vegetable silhouettes fill the posters. They carry Blue Apron’s promise of fresh ingredients while staying playful enough for a campus bulletin board.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Reflection -->
+      <section class="case-section" aria-labelledby="cs-reflection">
+        <header class="case-section__head">
+          <h2 class="case-section__title" id="cs-reflection">REFLECTION</h2>
+          <p class="case-section__q" data-only="condensed">What did I learn?</p>
+        </header>
+        <div class="case-section__body">
+          <p class="case__description">I didn’t have the official title of creative director, but I ended up steering how the whole campaign looked, which meant building a system clear enough for five people to work in. Starting from research made the design decisions easier to defend: every piece traces back to who we were talking to and why they hadn’t been reached yet.</p>
+        </div>
+      </section>
+
+      <!-- Next case study: loops back to the first one. -->
+      <nav class="next-case" aria-label="Next case study">
+        <a class="next-case__link" href="beneath-the-surface.html" data-cursor-label="TAKE FLIGHT" data-cursor-label-dark="DIVE IN">
+          <span class="next-case__label"><span class="light-only">Next field note</span><span class="dark-only">Next sample</span></span>
+          <span class="next-case__title">BENEATH THE SURFACE</span>
+          <span class="next-case__meta">UI Design / Illustration</span>
+          <span class="next-case__media"><img src="assets/images/beneath-the-surface/beneath-the-surface.jpg" width="1600" height="1200" alt="Beneath the Surface shown on a laptop screen" loading="lazy"></span>
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="site-footer__inner wrap">
+      <div class="site-footer__brand">
+        <a class="site-footer__home" href="index.html" aria-label="Cailin Kuhn — home">
+          <img class="site-footer__logo logo--light" src="assets/icons/logo-footer-light.svg" width="140" height="144" alt="">
+          <img class="site-footer__logo logo--dark" src="assets/icons/logo-footer-dark.svg" width="140" height="144" alt="">
+        </a>
+        <p class="site-footer__tagline">LET<span class="apos">’</span>S GO EXPLORING</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="footer-menu">
+        <h2 class="footer-col__title" id="footer-menu">MENU</h2>
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-col__title"><span class="light-only">FIND ME IN THE FIELD</span><span class="dark-only">SEND A SIGNAL</span></h2>
+        <ul role="list">
+          <li><a href="mailto:cailinmkuhn@gmail.com">cailinmkuhn@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/contours.js"></script>
+  <script src="js/case.js"></script>
+  <script src="js/lightbox.js"></script>
+</body>
+</html>

@@ -16,7 +16,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=East+Sea+Dokdo&family=Hanken+Grotesk:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400&family=Reenie+Beanie&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-dark.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="assets/icons/logo-header-light.svg" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="css/styles.css">
@@ -77,75 +77,147 @@
       <div class="desk">
 
         <ul class="desk__pile" role="list">
-          <li class="piece" data-type="ui" style="--x: 2%; --y: 4%; --w: 26%; --r: -4deg">
+          <li class="piece" data-type="ui" style="--x: 4%; --y: 3%; --w: 20%; --r: -4deg">
             <button type="button" class="piece__card" data-note="scout">
-              <span class="piece__media"><img src="assets/images/scout-one.jpg" width="1600" height="900" alt="Scout One smart binoculars render" loading="lazy"></span>
+              <span class="piece__media"><img src="assets/images/playground/scout-one/scout-introducing.png" width="1080" height="1080" alt="Introducing Scout One: lavender smart binoculars with a screen mounted on top, identifying an osprey" loading="lazy"></span>
               <span class="piece__label"><span class="piece__title">SCOUT ONE</span><span class="tag">UI</span></span>
             </button>
           </li>
-          <li class="piece" data-type="motion" style="--x: 31%; --y: 9%; --w: 20%; --r: 3deg">
+          <li class="piece" data-type="motion" style="--x: 33%; --y: 9%; --w: 21%; --r: 3deg">
             <button type="button" class="piece__card" data-note="framer">
-              <span class="piece__media"><video src="assets/videos/framer-square.mp4" poster="assets/images/framer-brand-ident.jpg" width="720" height="720" muted loop playsinline preload="none" aria-label="Framer brand ident: layered website layouts sliding past each other"></video></span>
+              <span class="piece__media"><video src="assets/images/playground/framer/framer-square.mp4" poster="assets/images/playground/framer/framer-brand-ident.jpg" width="720" height="720" muted loop playsinline preload="none" aria-label="Framer brand ident: layered website layouts sliding past each other"></video></span>
               <span class="piece__label"><span class="piece__title">FRAMER BRAND IDENT</span><span class="tag">MOTION</span></span>
             </button>
           </li>
-          <li class="piece" data-type="motion" style="--x: 55%; --y: 12%; --w: 20%; --r: -2deg">
+          <li class="piece" data-type="motion" style="--x: 63%; --y: 7%; --w: 22%; --r: -2deg">
             <button type="button" class="piece__card" data-note="broadcity">
-              <span class="piece__media"><video src="assets/videos/broadCity-square.mp4" poster="assets/images/broad-city-opener.jpg" width="720" height="720" muted loop playsinline preload="none" aria-label="Broad City opener animation of two friends high-fiving"></video></span>
+              <span class="piece__media"><video src="assets/images/playground/broad-city/broadCity-square.mp4" poster="assets/images/playground/broad-city/broad-city-opener.jpg" width="720" height="720" muted loop playsinline preload="none" aria-label="Broad City opener animation of two friends high-fiving"></video></span>
               <span class="piece__label"><span class="piece__title">BROAD CITY</span><span class="tag">MOTION</span></span>
             </button>
-            <p class="piece__doodle piece__doodle--above" aria-hidden="true">so much fun to make! ↓</p>
+            <p class="piece__doodle piece__doodle--above" aria-hidden="true">so much fun to make! <span class="doodle-arrow doodle-arrow--down"><svg class="light-only" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><path d="M3 9.5c9.8-3.1 21.4-1.6 30.2 4.3 9.6 6.4 14.8 17.2 16.9 28.6.6 3.2 1 6.6 1.1 10.3"/><path d="M40.2 41.8c3.5 3.4 7.1 7.7 11.3 12.4 1.6-4.9 3.6-9.4 5.7-14.6"/></svg><span class="dark-only">↓</span></span></p>
           </li>
-          <li class="piece" data-type="ui" style="--x: 85%; --y: 3%; --w: 11%; --r: 5deg">
-            <button type="button" class="piece__card" data-note="spotify">
-              <span class="piece__media"><img src="assets/images/studySpace-title.png" width="428" height="926" alt="Spotify Study Space screen: a circular study timer over drifting dots, with the music player below" loading="lazy"></span>
-              <span class="piece__label"><span class="piece__title">SPOTIFY STUDY SPACE</span><span class="tag">UI</span></span>
-            </button>
-          </li>
-          <li class="piece" data-type="code" style="--x: 3%; --y: 45%; --w: 26%; --r: 2deg">
+          <li class="piece" data-type="code" style="--x: 2%; --y: 60%; --w: 25%; --r: 2deg">
             <button type="button" class="piece__card" data-note="orbis">
-              <span class="piece__media"><img src="assets/images/orbis-title.png" width="1600" height="772" alt="Orbis: a glowing ring drawn in light lines floating in a starry space, with constellation lines nearby" loading="lazy"></span>
+              <span class="piece__media"><img src="assets/images/playground/orbis/orbis-title.png" width="1600" height="772" alt="Orbis: a glowing ring drawn in light lines floating in a starry space, with constellation lines nearby" loading="lazy"></span>
               <span class="piece__label"><span class="piece__title">ORBIS</span><span class="tag">CODE</span><span class="tag tag--wip">IN PROGRESS</span></span>
             </button>
           </li>
           <li class="piece" data-type="code" style="--x: 32%; --y: 55%; --w: 30%; --r: -3deg">
             <button type="button" class="piece__card" data-note="polaris">
-              <span class="piece__media"><video src="assets/videos/polaris-title.mp4" poster="assets/images/polaris-title.jpg" width="1280" height="720" muted loop playsinline preload="none" aria-label="Polaris installation: a person moving their hands in front of a wall projection of swirling particles"></video></span>
+              <span class="piece__media"><video src="assets/images/playground/polaris/polaris-title.mp4" poster="assets/images/playground/polaris/polaris-title.jpg" width="1280" height="720" muted loop playsinline preload="none" aria-label="Polaris installation: a person moving their hands in front of a wall projection of swirling particles"></video></span>
               <span class="piece__label"><span class="piece__title">POLARIS</span><span class="tag">CODE</span></span>
             </button>
-            <p class="piece__doodle piece__doodle--below" aria-hidden="true">↑ we built this in three days!</p>
+            <p class="piece__doodle piece__doodle--below" aria-hidden="true"><span class="doodle-arrow doodle-arrow--up"><svg class="light-only" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><path d="M3 9.5c9.8-3.1 21.4-1.6 30.2 4.3 9.6 6.4 14.8 17.2 16.9 28.6.6 3.2 1 6.6 1.1 10.3"/><path d="M40.2 41.8c3.5 3.4 7.1 7.7 11.3 12.4 1.6-4.9 3.6-9.4 5.7-14.6"/></svg><span class="dark-only">↑</span></span> we built this in three days!</p>
           </li>
-          <li class="piece" data-type="branding" style="--x: 66%; --y: 61%; --w: 21%; --r: 4deg">
+          <li class="piece" data-type="branding" style="--x: 71%; --y: 64%; --w: 22%; --r: 4deg">
             <button type="button" class="piece__card" data-note="sierra">
-              <span class="piece__media"><img src="assets/images/sierra-businesscards.png" width="1600" height="1067" alt="Sierra Allen business cards in black with a green swoosh, scattered on a table" loading="lazy"></span>
+              <span class="piece__media"><img src="assets/images/playground/sierra/sierra-businesscards.png" width="1600" height="1067" alt="Sierra Allen business cards in black with a green swoosh, scattered on a table" loading="lazy"></span>
               <span class="piece__label"><span class="piece__title">SIERRA BRANDING</span><span class="tag">BRANDING</span><span class="tag tag--wip">IN PROGRESS</span></span>
             </button>
-            <p class="piece__doodle piece__doodle--above-left" aria-hidden="true">the newest one<br>(still under construction) ↓</p>
+            <p class="piece__doodle piece__doodle--above-left" aria-hidden="true">the newest one<br>(still under construction) <span class="doodle-arrow doodle-arrow--down"><svg class="light-only" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><path d="M3 9.5c9.8-3.1 21.4-1.6 30.2 4.3 9.6 6.4 14.8 17.2 16.9 28.6.6 3.2 1 6.6 1.1 10.3"/><path d="M40.2 41.8c3.5 3.4 7.1 7.7 11.3 12.4 1.6-4.9 3.6-9.4 5.7-14.6"/></svg><span class="dark-only">↓</span></span></p>
           </li>
         </ul>
       </div>
 
       <!-- Notes that open when a piece is clicked (js/playground.js copies the matching one into the dialog). -->
       <template id="notes">
-        <section data-note="scout" data-type-label="UI · Product concept">
-          <h2>SCOUT ONE</h2>
-          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
-          <p>A concept for a pair of smart binoculars that specialize in identifying animals and their behaviors.</p>
+        <!-- Expanded note: data-wide = bigger card, data-own-media = uses its own images instead of the card's. -->
+        <section data-note="scout" data-type-label="UI · Product concept" data-wide data-own-media>
+          <div class="note-card__intro">
+            <img class="note-card__hero" src="assets/images/playground/scout-one/scout-introducing.png" width="1080" height="1080" alt="Introducing Scout One: lavender smart binoculars with a screen mounted on top, identifying an osprey diving for fish" loading="lazy">
+            <div>
+              <p class="note-card__type"></p>
+              <h2>SCOUT ONE</h2>
+              <p class="note-card__testing">What I was testing: how a screen could change an object people already know how to use.</p>
+              <p>The brief: attach a screen to an everyday object so that it adds to, or changes, what the object does. I’m a birder, so I picked binoculars. Scout One is a pair of smart binoculars that tells you what you’re looking at, what it’s doing, and what you’re hearing.</p>
+            </div>
+          </div>
+
+          <figure class="note-card__figure">
+            <img src="assets/images/playground/scout-one/scout-physicalinteractions.png" width="2000" height="1124" alt="Side view of Scout One labelling its physical controls: a power switch, a select button, a close button and a scroll wheel" loading="lazy">
+            <figcaption>The controls: a power switch, select and close buttons, and a scroll wheel for moving through the menu.</figcaption>
+          </figure>
+
+          <div class="note-card__pair">
+            <figure class="note-card__figure">
+              <img src="assets/images/playground/scout-one/scout-front.1.png" width="1600" height="900" alt="Scout One’s screen identifying a harp seal at 93% confidence, resting in a banana pose, with a fact about why seals do it" loading="lazy">
+              <figcaption><strong>Identify.</strong> Point it at an animal to see what it is, what it’s doing, and a fact about it.</figcaption>
+            </figure>
+            <figure class="note-card__figure">
+              <img src="assets/images/playground/scout-one/scout-front.2.png" width="1600" height="900" alt="Scout One’s screen recording a marsh soundscape, with an audio log listing a laughing gull, American goldfinch, greater yellowlegs and ring-billed gull" loading="lazy">
+              <figcaption><strong>Listen.</strong> Record what’s around you and keep a log of every bird it hears.</figcaption>
+            </figure>
+          </div>
+          <!-- Obituary link goes here once there's a file or URL for it:
+          <p class="note-card__obit">Part of the assignment was writing Scout One’s obituary, imagining its legacy once it’s gone.</p>
+          <a class="text-link" href="assets/documents/scout-one-obituary.pdf" target="_blank" rel="noopener"><span class="text-link__label">Read its obituary</span><span class="icon icon--arrow" aria-hidden="true"></span></a>
+          -->
         </section>
-        <section data-note="framer" data-type-label="Motion · Series of 3">
+        <section data-note="framer" data-type-label="Motion · Promo ident" data-wide data-own-media>
+          <video class="note-card__hero" src="assets/images/playground/framer/framer-horizontal.mp4" poster="assets/images/playground/framer/framer-horizontal-poster.jpg" width="1280" height="720" controls playsinline preload="metadata" aria-label="Framer brand ident, the full 16:9 version with sound"></video>
+          <p class="note-card__type"></p>
           <h2>FRAMER BRAND IDENT</h2>
-          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
-          <p>A series of three motion graphics pieces promoting the website design platform Framer.</p>
+          <p class="note-card__testing">What I was testing: how much a few words and a lot of motion can say about a brand.</p>
+          <p>The brief: a short promotional motion graphic for a company or product. I was building my portfolio in Framer at the time, so I picked it, and gave the ident the same clean, modern energy as the tool itself.</p>
+
+          <div class="note-card__formats">
+            <figure class="note-card__figure">
+              <video src="assets/images/playground/framer/framer-square.mp4" poster="assets/images/playground/framer/framer-brand-ident.jpg" width="720" height="720" autoplay muted loop playsinline aria-label="The ident cut to a square for feed posts"></video>
+              <figcaption><strong>Square.</strong> Re-cut for feed posts.</figcaption>
+            </figure>
+            <figure class="note-card__figure">
+              <video src="assets/images/playground/framer/framer-vertical.mp4" width="720" height="1280" autoplay muted loop playsinline aria-label="The ident cut to a vertical frame for stories"></video>
+              <figcaption><strong>Vertical.</strong> Re-cut for stories and reels.</figcaption>
+            </figure>
+          </div>
+
+          <figure class="note-card__figure">
+            <img src="assets/images/playground/framer/framer-billboard.png" width="2000" height="1500" alt="Billboard mockup in Framer blue with the logo and the line “Your site. No limits.”" loading="lazy">
+            <figcaption>Out in the world: the end card as a billboard…</figcaption>
+          </figure>
+          <div class="note-card__pair">
+            <figure class="note-card__figure">
+              <img src="assets/images/playground/framer/framer-mac.png" width="2000" height="1500" alt="Laptop mockup playing the ident, with layered website layouts on a blue background" loading="lazy">
+              <figcaption>…on a laptop…</figcaption>
+            </figure>
+            <figure class="note-card__figure">
+              <img src="assets/images/playground/framer/framer-phone.png" width="2000" height="1500" alt="Two phones playing the vertical cut: one filled with repeating blue type, one with a stack of website layouts" loading="lazy">
+              <figcaption>…and on phones.</figcaption>
+            </figure>
+          </div>
         </section>
-        <section data-note="broadcity" data-type-label="Motion · Series of 3">
+        <section data-note="broadcity" data-type-label="Motion · Title sequence" data-wide data-own-media>
+          <video class="note-card__hero" src="assets/images/playground/broad-city/broadCity-horizontal.mp4" poster="assets/images/playground/broad-city/broadCity-horizontal-poster.jpg" width="1280" height="720" controls playsinline preload="metadata" aria-label="Broad City title sequence, the full 16:9 version with sound"></video>
+          <p class="note-card__type"></p>
           <h2>BROAD CITY</h2>
-          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
-          <p>A title sequence for the show <cite>Broad City</cite>, with two companion advertisements.</p>
-        </section>
-        <section data-note="spotify" data-type-label="UI · Feature concept">
-          <h2>SPOTIFY STUDY SPACE</h2>
-          <p class="note-card__testing">What I was testing: <span class="is-placeholder">add a one-line hook.</span></p>
-          <p>A concept for a Spotify feature that lets you set a study timer. While it runs, it limits what you can do in the app and plays calming visuals.</p>
+          <p class="note-card__testing">What I was testing: how hand-drawn characters could share the screen with real photos of New York.</p>
+          <p>The brief: an opening title sequence for a show or movie. My classmate Cecelia Wong and I picked <cite>Broad City</cite>. We animated Abbi and Ilana in Procreate, reworked the photos in Photoshop, and put it all together in After Effects.</p>
+
+          <figure class="note-card__figure">
+            <img src="assets/images/playground/broad-city/broadCity-storyboard.png" width="2400" height="1350" alt="Twelve-panel pencil storyboard: a countdown, Abbi and Ilana growing giant over New York, sitting on the Brooklyn Bridge, squeezing into a subway car, and the Broad City logo" loading="lazy">
+            <figcaption><strong>Storyboard.</strong> Where it started: a countdown, two giants loose in the city, and a subway ride to the logo.</figcaption>
+          </figure>
+          <div class="note-card__pair note-card__pair--characters">
+            <figure class="note-card__figure note-card__figure--paper">
+              <img src="assets/images/playground/broad-city/broadCity-ilana.png" width="445" height="495" alt="Illustration of Ilana mid-stride, with purple curly hair, a yellow crop top and wide purple pants" loading="lazy">
+              <figcaption><strong>Ilana.</strong> Character design.</figcaption>
+            </figure>
+            <figure class="note-card__figure note-card__figure--paper">
+              <img src="assets/images/playground/broad-city/broadCity-abbi.png" width="1280" height="1474" alt="Illustration of Abbi mid-stride, with long red hair, a green jacket and pink pants" loading="lazy">
+              <figcaption><strong>Abbi.</strong> Character design.</figcaption>
+            </figure>
+          </div>
+
+          <div class="note-card__formats">
+            <figure class="note-card__figure">
+              <video src="assets/images/playground/broad-city/broadCity-square.mp4" poster="assets/images/playground/broad-city/broad-city-opener.jpg" width="720" height="720" autoplay muted loop playsinline aria-label="A short square teaser of the opener"></video>
+              <figcaption><strong>Square.</strong> A short teaser for feed posts.</figcaption>
+            </figure>
+            <figure class="note-card__figure">
+              <video src="assets/images/playground/broad-city/broadCity-vertical.mp4" width="720" height="1280" autoplay muted loop playsinline aria-label="A vertical teaser of the opener"></video>
+              <figcaption><strong>Vertical.</strong> A teaser for stories and reels.</figcaption>
+            </figure>
+          </div>
         </section>
         <section data-note="orbis" data-type-label="Code · Interactive · In progress" data-link="#">
           <h2>ORBIS</h2>
@@ -189,7 +261,6 @@
         <h2 class="footer-col__title"><span class="light-only">FIND ME IN THE FIELD</span><span class="dark-only">SEND A SIGNAL</span></h2>
         <ul role="list">
           <li><a href="mailto:cailinmkuhn@gmail.com">cailinmkuhn@gmail.com</a></li>
-          <li><a href="tel:+19149990923">+1 (914)-999-0923</a></li>
         </ul>
       </div>
     </div>
